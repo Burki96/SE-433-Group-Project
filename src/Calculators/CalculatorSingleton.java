@@ -1,5 +1,6 @@
 package Calculators;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -24,6 +25,9 @@ public class CalculatorSingleton
 	public static void Start(int width, int height, String name) 
 	{
 		GetInstance().privStart(width, height,name);
+	}
+	public static JFrame GetMainWindow() {
+		return GetInstance().mainWindowFrame;
 	}
 	private void privStart(int width, int height, String name) 
 	{
