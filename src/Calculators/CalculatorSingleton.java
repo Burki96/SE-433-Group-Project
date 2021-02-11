@@ -1,15 +1,20 @@
 package Calculators;
 
-import java.awt.BorderLayout;
+
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class CalculatorSingleton 
 {
 	private static CalculatorSingleton instance = null;
 	private JFrame mainWindowFrame;
+	private JTextField txtHello;
 	private CalculatorSingleton() 
 	{
 		mainWindowFrame = null;
@@ -22,27 +27,28 @@ public class CalculatorSingleton
 		}
 		return instance;
 	}
-	public static void Start(int width, int height, String name) 
+	public static void Start() 
 	{
-		GetInstance().privStart(width, height,name);
+		GetInstance().privStart();
 	}
 	public static JFrame GetMainWindow() {
 		return GetInstance().mainWindowFrame;
 	}
-	private void privStart(int width, int height, String name) 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
+	private void privStart() 
 	{
-		mainWindowFrame = new JFrame(name);
-		//2. Optional: What happens when the frame closes?
+		mainWindowFrame = new JFrame();
+		mainWindowFrame.setTitle("Calculator");
+		mainWindowFrame.setBounds(100, 100, 766, 460);
 		mainWindowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JLabel emptyLabel = new JLabel("");
-		emptyLabel.setPreferredSize(new Dimension(175, 100));
-		mainWindowFrame.getContentPane().add(emptyLabel , BorderLayout.CENTER);
-
-		//4. Size the frame.
-		mainWindowFrame.pack();
 		
-		//5. Show it.
+		txtHello = new JTextField();
+		txtHello.setHorizontalAlignment(SwingConstants.CENTER);
+		txtHello.setText("Hello");
+		mainWindowFrame.getContentPane().add(txtHello, BorderLayout.CENTER);
+		txtHello.setColumns(5);
 		mainWindowFrame.setVisible(true);
 	}
 }

@@ -1,11 +1,21 @@
 package Calculators;
 
-
+import java.awt.EventQueue;
 public class Calculator {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		CalculatorSingleton.Start(1024, 768, "Calculator");
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					//test window = new test();
+					CalculatorSingleton.Start();
+					//window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});// TODO Auto-generated method stub
+		
 	}
 
 }
