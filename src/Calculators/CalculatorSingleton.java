@@ -9,12 +9,14 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.Font;
 
 public class CalculatorSingleton 
 {
 	private static CalculatorSingleton instance = null;
 	private JFrame mainWindowFrame;
-	private JTextField txtHello;
+	private JTextField textField;
 	private CalculatorSingleton() 
 	{
 		mainWindowFrame = null;
@@ -39,16 +41,6 @@ public class CalculatorSingleton
 	 */
 	private void privStart() 
 	{
-		mainWindowFrame = new JFrame();
-		mainWindowFrame.setTitle("Calculator");
-		mainWindowFrame.setBounds(100, 100, 766, 460);
-		mainWindowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		txtHello = new JTextField();
-		txtHello.setHorizontalAlignment(SwingConstants.CENTER);
-		txtHello.setText("Hello");
-		mainWindowFrame.getContentPane().add(txtHello, BorderLayout.CENTER);
-		txtHello.setColumns(5);
-		mainWindowFrame.setVisible(true);
+		new MainMenu();
 	}
 }
