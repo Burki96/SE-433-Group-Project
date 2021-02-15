@@ -3,6 +3,8 @@ package Calculators;
 
 import javax.swing.JFrame;
 
+import Calculators.Windows.MainMenu;
+
 
 public class MainProgramSingleton 
 {

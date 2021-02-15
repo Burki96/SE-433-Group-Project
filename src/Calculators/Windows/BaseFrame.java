@@ -1,8 +1,11 @@
-package Calculators;
+package Calculators.Windows;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+
+import Calculators.MainProgramSingleton;
+import Calculators.Factories.ButtonFactory;
 
 public class BaseFrame extends JFrame{
 	private static final long serialVersionUID = 7643362405697794365L;

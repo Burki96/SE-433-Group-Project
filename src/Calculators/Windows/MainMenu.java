@@ -1,4 +1,4 @@
-package Calculators;
+package Calculators.Windows;
 
 import java.awt.Font;
 
@@ -6,6 +6,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import javax.swing.JLabel;
+
+import Calculators.Factories.ButtonFactory;
 
 public class MainMenu {
 
