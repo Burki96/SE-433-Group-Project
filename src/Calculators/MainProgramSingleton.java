@@ -4,14 +4,17 @@ package Calculators;
 import javax.swing.JFrame;
 
 import Calculators.Windows.MainMenu;
+import Events.ClosingEvent;
 
 
 public class MainProgramSingleton 
 {
 	private static MainProgramSingleton instance = null;
 	private JFrame mainWindowFrame;
+	private ClosingEvent closingEvent;
 	private MainProgramSingleton() 
 	{
+		closingEvent = new ClosingEvent();
 		mainWindowFrame = null;
 	}
 	private static MainProgramSingleton GetInstance() 
@@ -21,6 +24,10 @@ public class MainProgramSingleton
 			instance = new MainProgramSingleton();
 		}
 		return instance;
+	}
+	public static ClosingEvent GetClosingEvent() 
+	{
+		return GetInstance().closingEvent;
 	}
 	public static void Start() 
 	{
