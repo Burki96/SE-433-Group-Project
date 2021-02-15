@@ -10,12 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import Calculators.Factories.ButtonFactory;
+import Events.MainMenuCalculatorSwitch;
 
 public class MainMenu {
 
 	private BaseFrame mainWindowFrame;
 	private JButton Button1;
 	private static MainMenu instance = null;
+	private MainMenuCalculatorSwitch switch1;
 	private static MainMenu GetInstance()
 	{
 		if(instance == null) 
@@ -25,6 +27,7 @@ public class MainMenu {
 		return instance;
 	}
 	private MainMenu() {
+		switch1 = new MainMenuCalculatorSwitch();
 		mainWindowFrame = new BaseFrame();
 	}
 	public static JFrame GetWindow() 
@@ -59,17 +62,7 @@ public class MainMenu {
 		mainWindowFrame.getContentPane().add(Button1);
 		
 		
-		Button1.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new CalculatorWindow();
-				MainMenu.Turnoff();
-				
-				// TODO Auto-generated method stub
-				
-			}
-		});
+		Button1.addActionListener(switch1);
 		
 		JLabel lblNewLabel = new JLabel("SE 433 Project");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
