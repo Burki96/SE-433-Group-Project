@@ -53,6 +53,7 @@ public class ButtonFactory {
 		public static void Terminate() 
 		{
 			GetInstance().list.clear();
+			GetInstance().list = null;
 			instance = null;
 		}
 }

@@ -1,10 +1,7 @@
 package Calculators;
 
 
-import java.awt.Dimension;
-
 import javax.swing.JFrame;
-import javax.swing.JTextField;
 
 
 public class MainProgramSingleton 
