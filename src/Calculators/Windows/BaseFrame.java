@@ -21,6 +21,7 @@ public class BaseFrame extends JFrame{
 	public void ExitFunction() {
 		ButtonFactory.Terminate();
 		MainProgramSingleton.Terminate();
+		MainMenu.Terminate();
 		this.dispose();
 		System.exit(0);
 	}
