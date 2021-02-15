@@ -1,21 +1,17 @@
 package Calculators;
 
-import java.awt.EventQueue;
-public class Calculator {
+
+public class Calculator{
 
 	//hi, this is arturo chaidez
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					//test window = new test();
-					CalculatorSingleton.Start();
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});// TODO Auto-generated method stub
+		
+//		ProgramThread thread = new ProgramThread();
+//		thread.run();
+//		thread.stop();
+		MainProgramSingleton.Start();
+		//ButtonFactory.Terminate();
+		
 		
 	}
 
