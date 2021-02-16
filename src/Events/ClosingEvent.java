@@ -5,6 +5,8 @@ import java.awt.event.WindowEvent;
 
 import Calculators.MainProgramSingleton;
 import Calculators.Factories.ButtonFactory;
+import Calculators.Factories.CalculatorActionListenerManager;
+import Calculators.Windows.CalculatorWindow;
 import Calculators.Windows.MainMenu;
 
 public class ClosingEvent extends WindowAdapter {
@@ -18,9 +20,12 @@ public class ClosingEvent extends WindowAdapter {
         ExitFunction();
     }
 	public void ExitFunction() {
-		ButtonFactory.Terminate();
-		MainProgramSingleton.Terminate();
 		MainMenu.Terminate();
+		CalculatorWindow.Terminate();
+		ButtonFactory.Terminate();
+		CalculatorActionListenerManager.Terminate();
+		MainProgramSingleton.Terminate();
+		
 		System.exit(0);
 	}
 

@@ -4,8 +4,6 @@ import javax.swing.JFrame;
 
 import Calculators.Factories.ButtonFactory;
 import Calculators.Factories.CalculatorActionListenerManager;
-import Events.CalculatorButtonEvents.NumberAction;
-
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -85,7 +83,7 @@ public class CalculatorWindow {
 		this.textField = null;
 		this.list.clear();
 		frame.setVisible(false);
-		CalculatorActionListenerManager.Terminate();
+		
 	}
 	//starts the calculator window
 	public static void Start() 
