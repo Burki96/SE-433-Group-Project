@@ -66,6 +66,7 @@ public class CalculatorWindow {
 	}
 	private void privShutdown() 
 	{
+		
 		ZeroButton = ButtonFactory.returnButton(this.ZeroButton);
 		OneButton = ButtonFactory.returnButton(this.OneButton);
 		TwoButton = ButtonFactory.returnButton(this.TwoButton);
@@ -84,6 +85,7 @@ public class CalculatorWindow {
 		this.textField = null;
 		this.list.clear();
 		frame.setVisible(false);
+		CalculatorActionListenerManager.Terminate();
 	}
 	//starts the calculator window
 	public static void Start() 
