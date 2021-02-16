@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import Calculators.Windows.CalculatorWindow;
 
-public class ZeroButtonEvent implements ActionListener
+public class ZeroButtonAction implements ActionListener
 {
 
 	@Override
