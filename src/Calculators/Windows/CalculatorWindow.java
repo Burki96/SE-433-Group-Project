@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import Calculators.Factories.ButtonFactory;
 import Calculators.Factories.CalculatorActionListenerManager;
+
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -30,6 +31,12 @@ public class CalculatorWindow {
 
 	private JButton ClearButton;
 	private JTextField textField;
+	private double FirstNumber;
+	private double SecondNumber;
+	private double Result;
+	private String opString;
+	private String anString;
+	private JButton DivisionButton;
 	private static CalculatorWindow GetInstance()
 	{
 		if(instance == null) 
@@ -40,6 +47,7 @@ public class CalculatorWindow {
 	}
 	private CalculatorWindow() {
 		this.list = new ArrayList<JButton>();
+		
 		//initialize();
 	}
 	//Hard terminate, does soft terminate, but will also deletes the singleton
@@ -77,9 +85,9 @@ public class CalculatorWindow {
 		NineButton = ButtonFactory.returnButton(this.NineButton);
 		EqualsButton = ButtonFactory.returnButton(this.EqualsButton);
 		MultiplicationButton = ButtonFactory.returnButton(this.MultiplicationButton);
+		DivisionButton = ButtonFactory.returnButton(this.DivisionButton);
 		MinusButton = ButtonFactory.returnButton(this.MinusButton);
 		PlusButton = ButtonFactory.returnButton(this.PlusButton);
-		EqualsButton = ButtonFactory.returnButton(this.EqualsButton);
 		this.textField = null;
 		this.list.clear();
 		frame.setVisible(false);
@@ -98,6 +106,30 @@ public class CalculatorWindow {
 	{
 		return list.get(i);
 	}
+	public static void DoArthimeticAction(String c)
+	{
+		GetInstance().privDoArthimeticAction(c);
+	}
+	public static void Compute()
+	{
+		GetInstance().privCompute();
+	}
+	private void privCompute() 
+	{
+		this.SecondNumber = Double.parseDouble(textField.getText());
+		if(this.opString == "+") 
+		{
+			this.Result = FirstNumber + SecondNumber;
+			this.anString = String.format("%.2f", Result);
+			this.textField.setText(this.anString);
+		}
+	}
+	private void privDoArthimeticAction(String c) 
+	{
+		this.FirstNumber = Double.parseDouble(textField.getText());
+		this.textField.setText("");
+		this.opString = c;
+	}
 	/**
 	 * @wbp.parser.entryPoint
 	 */
@@ -111,78 +143,78 @@ public class CalculatorWindow {
 		frame.getContentPane().setLayout(null);
 		
 		ZeroButton = ButtonFactory.GetButton("0");
-		ZeroButton.setBounds(91, 349, 73, 53);
+		ZeroButton.setBounds(91, 382, 73, 53);
 		frame.getContentPane().add(ZeroButton);
 		list.add(ZeroButton);                      //0
 		
 		OneButton = ButtonFactory.GetButton("1");
-		OneButton.setBounds(10, 285, 73, 53);
+		OneButton.setBounds(10, 318, 73, 53);
 		frame.getContentPane().add(OneButton);
 		list.add(OneButton);                      //1
 		
 		TwoButton = ButtonFactory.GetButton("2");
-		TwoButton.setBounds(91, 285, 73, 53);
+		TwoButton.setBounds(91, 318, 73, 53);
 		frame.getContentPane().add(TwoButton);
 		list.add(TwoButton);
 		
 		ThreeButton = ButtonFactory.GetButton("3");
-		ThreeButton.setBounds(174, 285, 73, 53);
+		ThreeButton.setBounds(174, 318, 73, 53);
 		frame.getContentPane().add(ThreeButton);
 		list.add(ThreeButton);
 		
 		FourButton = ButtonFactory.GetButton("4");
-		FourButton.setBounds(10, 221, 73, 53);
+		FourButton.setBounds(10, 254, 73, 53);
 		frame.getContentPane().add(FourButton);
 		list.add(FourButton);
 		
 		FiveButton = ButtonFactory.GetButton("5");
-		FiveButton.setBounds(91, 221, 73, 53);
+		FiveButton.setBounds(91, 254, 73, 53);
 		frame.getContentPane().add(FiveButton);
 		list.add(FiveButton);
 		
 		SixButton = ButtonFactory.GetButton("6");
-		SixButton.setBounds(174, 221, 73, 53);
+		SixButton.setBounds(174, 254, 73, 53);
 		frame.getContentPane().add(SixButton);
 		list.add(SixButton);                         //6
 		
 		SevenButton = ButtonFactory.GetButton("7");
-		SevenButton.setBounds(8, 157, 73, 53);
+		SevenButton.setBounds(10, 190, 73, 53);
 		frame.getContentPane().add(SevenButton);
 		list.add(SixButton); 
 		
 		EightButton = ButtonFactory.GetButton("8");
-		EightButton.setBounds(91, 157, 73, 53);
+		EightButton.setBounds(91, 190, 73, 53);
 		frame.getContentPane().add(EightButton);
 		list.add(EightButton); 
 		
 		NineButton = ButtonFactory.GetButton("9");
-		NineButton.setBounds(174, 157, 73, 53);
+		NineButton.setBounds(174, 190, 73, 53);
 		frame.getContentPane().add(NineButton);
 		list.add(NineButton); 
 		
 		MultiplicationButton = ButtonFactory.GetButton("X");
-		MultiplicationButton.setBounds(282, 285, 73, 53);
+		MultiplicationButton.setBounds(282, 318, 73, 53);
 		frame.getContentPane().add(MultiplicationButton);
 		list.add(MultiplicationButton); 
 		
 		MinusButton = ButtonFactory.GetButton("-");
-		MinusButton.setBounds(282, 221, 73, 53);
+		MinusButton.setBounds(282, 254, 73, 53);
 		frame.getContentPane().add(MinusButton);
 		list.add(MinusButton); 
 		
 		PlusButton = ButtonFactory.GetButton("+");
-		PlusButton.setBounds(282, 157, 73, 53);
+		PlusButton.setBounds(282, 190, 73, 53);
 		frame.getContentPane().add(PlusButton);
 		list.add(PlusButton); 
 		
 		EqualsButton = ButtonFactory.GetButton("=");
-		EqualsButton.setBounds(282, 349, 73, 53);
+		EqualsButton.setBounds(282, 382, 73, 53);
 		frame.getContentPane().add(EqualsButton);
 		list.add(EqualsButton); 
 		
 		ClearButton = ButtonFactory.GetButton("Clear");
 		ClearButton.setText("Clear");
-		ClearButton.setBounds(174, 349, 73, 53);
+		ClearButton.setBounds(174, 382, 73, 53);
 		list.add(ClearButton);
 		frame.getContentPane().add(ClearButton);
 		
@@ -191,6 +223,11 @@ public class CalculatorWindow {
 		textField.setBounds(10, 48, 345, 53);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		
+		DivisionButton = ButtonFactory.GetButton("%");
+		DivisionButton.setText("%");
+		DivisionButton.setBounds(282, 126, 73, 53);
+		frame.getContentPane().add(DivisionButton);
 		
 		ZeroButton.addActionListener(CalculatorActionListenerManager.GetListener(0));
 		OneButton.addActionListener(CalculatorActionListenerManager.GetListener(1));
@@ -202,8 +239,11 @@ public class CalculatorWindow {
 		SevenButton.addActionListener(CalculatorActionListenerManager.GetListener(7));
 		EightButton.addActionListener(CalculatorActionListenerManager.GetListener(8));
 		NineButton.addActionListener(CalculatorActionListenerManager.GetListener(9));
-		
-		
+		PlusButton.addActionListener(CalculatorActionListenerManager.GetListener(10));
+		MinusButton.addActionListener(CalculatorActionListenerManager.GetListener(11));
+		MultiplicationButton.addActionListener(CalculatorActionListenerManager.GetListener(12));
+		DivisionButton.addActionListener(CalculatorActionListenerManager.GetListener(13));
+		EqualsButton.addActionListener(CalculatorActionListenerManager.GetListener(14));
 		
 		frame.setVisible(true);
 	}

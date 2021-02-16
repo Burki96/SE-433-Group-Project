@@ -3,6 +3,8 @@ package Calculators.Factories;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import Events.CalculatorButtonEvents.ArithmeticAction;
+import Events.CalculatorButtonEvents.EqualAction;
 import Events.CalculatorButtonEvents.NumberAction;
 
 public class CalculatorActionListenerManager {
@@ -26,6 +28,11 @@ public class CalculatorActionListenerManager {
 		{
 			list.add(new NumberAction(i));
 		}
+		list.add(new ArithmeticAction("+"));
+		list.add(new ArithmeticAction("-"));
+		list.add(new ArithmeticAction("*"));
+		list.add(new ArithmeticAction("%"));
+		list.add(new EqualAction());
 	}
 	public static ActionListener GetListener(int i) 
 	{
