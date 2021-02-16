@@ -3,7 +3,7 @@ package Calculators.Windows;
 import javax.swing.JFrame;
 
 import Calculators.Factories.ButtonFactory;
-import Events.CalculatorButtonEvents.ZeroButtonAction;
+import Events.CalculatorButtonEvents.NumberAction;
 
 import java.util.ArrayList;
 
@@ -111,7 +111,6 @@ public class CalculatorWindow {
 		
 		ZeroButton = ButtonFactory.GetButton("0");
 		ZeroButton.setBounds(91, 349, 73, 53);
-		ZeroButton.addActionListener(new ZeroButtonAction());
 		frame.getContentPane().add(ZeroButton);
 		list.add(ZeroButton);                      //0
 		
@@ -191,6 +190,20 @@ public class CalculatorWindow {
 		textField.setBounds(10, 48, 345, 53);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		
+		ZeroButton.addActionListener(new NumberAction(0));
+		OneButton.addActionListener(new NumberAction(1));
+		TwoButton.addActionListener(new NumberAction(2));
+		ThreeButton.addActionListener(new NumberAction(3));
+		FourButton.addActionListener(new NumberAction(4));
+		FiveButton.addActionListener(new NumberAction(5));
+		SixButton.addActionListener(new NumberAction(6));
+		SevenButton.addActionListener(new NumberAction(7));
+		EightButton.addActionListener(new NumberAction(8));
+		NineButton.addActionListener(new NumberAction(9));
+		
+		
+		
 		frame.setVisible(true);
 	}
 }
