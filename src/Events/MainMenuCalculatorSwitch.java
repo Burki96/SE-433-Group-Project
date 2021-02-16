@@ -9,8 +9,9 @@ public class MainMenuCalculatorSwitch implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		new CalculatorWindow();
+		
 		MainMenu.Turnoff();
+		CalculatorWindow.Start();
 	}
 
 }

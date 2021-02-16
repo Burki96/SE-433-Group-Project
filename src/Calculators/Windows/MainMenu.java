@@ -46,6 +46,7 @@ public class MainMenu {
 	public static void Turnoff() {
 		GetInstance().privTurnoff();
 	}
+
 	private void privTurnoff() 
 	{
 		Button1 = ButtonFactory.returnButton(this.Button1);
