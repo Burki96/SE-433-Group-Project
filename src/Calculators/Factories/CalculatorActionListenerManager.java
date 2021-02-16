@@ -3,6 +3,10 @@ package Calculators.Factories;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import Calculators.Operations.DivisionOperation;
+import Calculators.Operations.MinusOperation;
+import Calculators.Operations.MultiplicationOperation;
+import Calculators.Operations.PlusOperation;
 import Events.CalculatorButtonEvents.ArithmeticAction;
 import Events.CalculatorButtonEvents.EqualAction;
 import Events.CalculatorButtonEvents.NumberAction;
@@ -28,10 +32,10 @@ public class CalculatorActionListenerManager {
 		{
 			list.add(new NumberAction(i));
 		}
-		list.add(new ArithmeticAction("+"));
-		list.add(new ArithmeticAction("-"));
-		list.add(new ArithmeticAction("*"));
-		list.add(new ArithmeticAction("%"));
+		list.add(new ArithmeticAction(new PlusOperation()));
+		list.add(new ArithmeticAction(new MinusOperation()));
+		list.add(new ArithmeticAction(new MultiplicationOperation()));
+		list.add(new ArithmeticAction(new DivisionOperation()));
 		list.add(new EqualAction());
 	}
 	public static ActionListener GetListener(int i) 

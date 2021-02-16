@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import Calculators.Factories.ButtonFactory;
 import Calculators.Factories.CalculatorActionListenerManager;
+import Calculators.Operations.Operation;
 
 import java.util.ArrayList;
 
@@ -33,8 +34,7 @@ public class CalculatorWindow {
 	private JTextField textField;
 	private double FirstNumber;
 	private double SecondNumber;
-	private double Result;
-	private String opString;
+	private Operation opString;
 	private String anString;
 	private JButton DivisionButton;
 	private static CalculatorWindow GetInstance()
@@ -106,7 +106,7 @@ public class CalculatorWindow {
 	{
 		return list.get(i);
 	}
-	public static void DoArthimeticAction(String c)
+	public static void DoArthimeticAction(Operation c)
 	{
 		GetInstance().privDoArthimeticAction(c);
 	}
@@ -114,17 +114,30 @@ public class CalculatorWindow {
 	{
 		GetInstance().privCompute();
 	}
+	public static double getFirstNumber() 
+	{
+		return GetInstance().FirstNumber;
+	}
+	public static void PassResult(double Result)
+	{
+		GetInstance().privPassResult(Result);
+	}
+	private void privPassResult(double Result) 
+	{
+		this.anString = String.format("%.2f", Result);
+		this.textField.setText(this.anString);
+		
+	}
+	public static double getSecondNumber() 
+	{
+		return GetInstance().SecondNumber;
+	}
 	private void privCompute() 
 	{
 		this.SecondNumber = Double.parseDouble(textField.getText());
-		if(this.opString == "+") 
-		{
-			this.Result = FirstNumber + SecondNumber;
-			this.anString = String.format("%.2f", Result);
-			this.textField.setText(this.anString);
-		}
+		this.opString.Execute();
 	}
-	private void privDoArthimeticAction(String c) 
+	private void privDoArthimeticAction(Operation c) 
 	{
 		this.FirstNumber = Double.parseDouble(textField.getText());
 		this.textField.setText("");
