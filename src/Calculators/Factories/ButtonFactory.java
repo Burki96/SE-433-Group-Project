@@ -47,6 +47,7 @@ public class ButtonFactory {
 		}
 		private JButton privReturn(JButton j) 
 		{
+			j.removeActionListener(j.getActionListeners()[0]);
 			list.add(j);
 			return null;
 		}
