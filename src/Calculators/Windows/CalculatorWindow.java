@@ -3,6 +3,7 @@ package Calculators.Windows;
 import javax.swing.JFrame;
 
 import Calculators.Factories.ButtonFactory;
+import Calculators.Factories.CalculatorActionListenerManager;
 import Events.CalculatorButtonEvents.NumberAction;
 
 import java.util.ArrayList;
@@ -191,16 +192,16 @@ public class CalculatorWindow {
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		ZeroButton.addActionListener(new NumberAction(0));
-		OneButton.addActionListener(new NumberAction(1));
-		TwoButton.addActionListener(new NumberAction(2));
-		ThreeButton.addActionListener(new NumberAction(3));
-		FourButton.addActionListener(new NumberAction(4));
-		FiveButton.addActionListener(new NumberAction(5));
-		SixButton.addActionListener(new NumberAction(6));
-		SevenButton.addActionListener(new NumberAction(7));
-		EightButton.addActionListener(new NumberAction(8));
-		NineButton.addActionListener(new NumberAction(9));
+		ZeroButton.addActionListener(CalculatorActionListenerManager.GetListener(0));
+		OneButton.addActionListener(CalculatorActionListenerManager.GetListener(1));
+		TwoButton.addActionListener(CalculatorActionListenerManager.GetListener(2));
+		ThreeButton.addActionListener(CalculatorActionListenerManager.GetListener(3));
+		FourButton.addActionListener(CalculatorActionListenerManager.GetListener(4));
+		FiveButton.addActionListener(CalculatorActionListenerManager.GetListener(5));
+		SixButton.addActionListener(CalculatorActionListenerManager.GetListener(6));
+		SevenButton.addActionListener(CalculatorActionListenerManager.GetListener(7));
+		EightButton.addActionListener(CalculatorActionListenerManager.GetListener(8));
+		NineButton.addActionListener(CalculatorActionListenerManager.GetListener(9));
 		
 		
 		
