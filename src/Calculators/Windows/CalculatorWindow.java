@@ -2,6 +2,7 @@ package Calculators.Windows;
 
 import javax.swing.JFrame;
 
+import Calculators.ButtonEnum;
 import Calculators.Factories.ButtonFactory;
 import Calculators.Factories.CalculatorActionListenerManager;
 import Calculators.Operations.Operation;
@@ -11,8 +12,10 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+
 public class CalculatorWindow {
 	private static CalculatorWindow instance = null;
+	private ArrayList<JButton> list;
 	private JButton SevenButton;
 	private JButton ZeroButton;
 	private JButton ThreeButton;
@@ -28,12 +31,8 @@ public class CalculatorWindow {
 	private JButton PlusButton;
 	private JButton EqualsButton;
 	private BaseFrame frame;
-	private ArrayList<JButton> list;
-
 	private JButton ClearButton;
 	private JTextField textField;
-	private double FirstNumber;
-	private double SecondNumber;
 	private Operation opString;
 	private String anString;
 	private JButton DivisionButton;
@@ -42,6 +41,8 @@ public class CalculatorWindow {
 	private JButton PeriodButton;
 	private JButton PlusMinus;
 	private JButton MainMenu;
+	private double FirstNumber;
+	private double SecondNumber;
 	private static CalculatorWindow GetInstance()
 	{
 		if(instance == null) 
@@ -71,6 +72,7 @@ public class CalculatorWindow {
 	{
 		return GetInstance().textField.getText();
 	}
+	//Sets the textbox on the calculator window, for interal use only, not for JUNIT
 	public static void SetText(String s)
 	{
 		GetInstance().textField.setText(s);
@@ -110,14 +112,17 @@ public class CalculatorWindow {
 	{
 		GetInstance().initialize();
 	}
-	
-	public static void PressButton(String c)
+	public static double GetAnswer()
 	{
-		
+		return Double.parseDouble(GetInstance().anString);
 	}
-	private void privPressButton(String c)
+	public static void PressButton(ButtonEnum c)
 	{
-		
+		GetInstance().privPressButton(c);
+	}
+	private void privPressButton(ButtonEnum c)
+	{
+		list.get(c.ordinal()).getActionListeners()[0].actionPerformed(null);
 	}
 	public static JButton GetButton(int i) 
 	{
@@ -164,133 +169,8 @@ public class CalculatorWindow {
 		this.textField.setText("");
 		this.opString = c;
 	}
-	/**
-	 * @wbp.parser.entryPoint
-	 */
-	private void initialize() {
-		
-		
-		
-		frame = new BaseFrame();
-		frame.setBounds(100, 100, 373, 485);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		ZeroButton = ButtonFactory.GetButton("0");
-		ZeroButton.setBounds(10, 382, 73, 53);
-		frame.getContentPane().add(ZeroButton);
-		list.add(ZeroButton);                      //0
-		
-		OneButton = ButtonFactory.GetButton("1");
-		OneButton.setBounds(10, 318, 73, 53);
-		frame.getContentPane().add(OneButton);
-		list.add(OneButton);                      //1
-		
-		TwoButton = ButtonFactory.GetButton("2");
-		TwoButton.setBounds(91, 318, 73, 53);
-		frame.getContentPane().add(TwoButton);
-		list.add(TwoButton);
-		
-		ThreeButton = ButtonFactory.GetButton("3");
-		ThreeButton.setBounds(174, 318, 73, 53);
-		frame.getContentPane().add(ThreeButton);
-		list.add(ThreeButton);
-		
-		FourButton = ButtonFactory.GetButton("4");
-		FourButton.setBounds(10, 254, 73, 53);
-		frame.getContentPane().add(FourButton);
-		list.add(FourButton);
-		
-		FiveButton = ButtonFactory.GetButton("5");
-		FiveButton.setBounds(91, 254, 73, 53);
-		frame.getContentPane().add(FiveButton);
-		list.add(FiveButton);
-		
-		SixButton = ButtonFactory.GetButton("6");
-		SixButton.setBounds(174, 254, 73, 53);
-		frame.getContentPane().add(SixButton);
-		list.add(SixButton);                         //6
-		
-		SevenButton = ButtonFactory.GetButton("7");
-		SevenButton.setBounds(10, 190, 73, 53);
-		frame.getContentPane().add(SevenButton);
-		list.add(SixButton); 						//7
-		
-		EightButton = ButtonFactory.GetButton("8");
-		EightButton.setBounds(91, 190, 73, 53);
-		frame.getContentPane().add(EightButton);
-		list.add(EightButton); 						//8
-		
-		NineButton = ButtonFactory.GetButton("9");
-		NineButton.setBounds(174, 190, 73, 53);
-		frame.getContentPane().add(NineButton);
-		list.add(NineButton); 						//9
-		
-		PeriodButton = ButtonFactory.GetButton(".");
-		PeriodButton.setBounds(93, 382, 73, 53);
-		frame.getContentPane().add(PeriodButton);
-		list.add(PeriodButton);						//10
-		MultiplicationButton = ButtonFactory.GetButton("X");
-		MultiplicationButton.setBounds(257, 318, 73, 53);
-		frame.getContentPane().add(MultiplicationButton);
-		list.add(MultiplicationButton); 				//11
-		
-		MinusButton = ButtonFactory.GetButton("-");
-		MinusButton.setBounds(257, 254, 73, 53);	//12
-		frame.getContentPane().add(MinusButton);
-		list.add(MinusButton); 
-		
-		PlusButton = ButtonFactory.GetButton("+");
-		PlusButton.setBounds(257, 190, 73, 53);
-		frame.getContentPane().add(PlusButton); 	//13
-		list.add(PlusButton); 
-		
-		DivisionButton = ButtonFactory.GetButton("/");
-		DivisionButton.setText("/");
-		DivisionButton.setBounds(257, 126, 73, 53);
-		list.add(DivisionButton);					//14
-		frame.getContentPane().add(DivisionButton);
-		
-		PercentageButton = ButtonFactory.GetButton("%");
-		PercentageButton.setBounds(174, 126, 73, 53);
-		list.add(PercentageButton);				//15
-		frame.getContentPane().add(PercentageButton);
-		
-		EqualsButton = ButtonFactory.GetButton("=");
-		EqualsButton.setBounds(257, 382, 73, 53);
-		frame.getContentPane().add(EqualsButton);
-		list.add(EqualsButton); 					//16
-		
-		ClearButton = ButtonFactory.GetButton("Clear");
-		ClearButton.setText("Clear");				
-		ClearButton.setBounds(91, 126, 73, 53);
-		list.add(ClearButton);					//17
-		frame.getContentPane().add(ClearButton);
-		
-		PlusMinus = ButtonFactory.GetButton("+/-");
-		PlusMinus.setBounds(174, 382, 73, 53);
-		list.add(PlusMinus);					//18
-		frame.getContentPane().add(PlusMinus);
-		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(10, 62, 337, 53);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-	
-		
-		BackSpaceButton = ButtonFactory.GetButton("Backspace");
-		BackSpaceButton.setText("<--");
-		BackSpaceButton.setBounds(10, 126, 73, 53);
-		list.add(BackSpaceButton);				//19
-		frame.getContentPane().add(BackSpaceButton);
-		
-		MainMenu = ButtonFactory.GetButton("MainMenu");
-		MainMenu.setText("Back");
-		MainMenu.setBounds(10, 11, 73, 41);
-		list.add(MainMenu);	
-		frame.getContentPane().add(MainMenu);
-		
+	private void AssignListeners()
+	{
 		ZeroButton.addActionListener(CalculatorActionListenerManager.GetListener(0));
 		OneButton.addActionListener(CalculatorActionListenerManager.GetListener(1));
 		TwoButton.addActionListener(CalculatorActionListenerManager.GetListener(2));
@@ -312,6 +192,157 @@ public class CalculatorWindow {
 		PlusMinus.addActionListener(CalculatorActionListenerManager.GetListener(18));
 		BackSpaceButton.addActionListener(CalculatorActionListenerManager.GetListener(19));
 		MainMenu.addActionListener(CalculatorActionListenerManager.GetListener(20));
+	}
+	private void AddAllTolist()
+	{
+		list.add(ZeroButton);                      //0
+		list.add(OneButton);                       //1
+		list.add(TwoButton);					   //2
+		list.add(ThreeButton);						//3
+		list.add(FourButton);						//4
+		list.add(FiveButton);						//5
+		list.add(SixButton);						//6
+		list.add(SevenButton);						//7
+		list.add(EightButton);						//8
+		list.add(NineButton);						//9
+		list.add(PeriodButton);						//10
+		list.add(PlusButton);						//11
+		list.add(MinusButton);						//12
+		list.add(MultiplicationButton);				//13
+		list.add(DivisionButton);					//14
+		list.add(PercentageButton);					//15
+		list.add(EqualsButton);						//16
+		list.add(ClearButton);						//17
+		list.add(PlusMinus);						//18
+		list.add(BackSpaceButton);					//19
+		list.add(MainMenu);							//20
+	}
+	/**
+	 * @wbp.parser.entryPoint
+	 */
+	private void initialize() {
+		
+		
+		
+		frame = new BaseFrame();
+		frame.setBounds(100, 100, 373, 485);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		ZeroButton = ButtonFactory.GetButton("0");
+		ZeroButton.setBounds(10, 382, 73, 53);
+		frame.getContentPane().add(ZeroButton);
+		
+		
+		OneButton = ButtonFactory.GetButton("1");
+		OneButton.setBounds(10, 318, 73, 53);
+		frame.getContentPane().add(OneButton);
+		
+		
+		TwoButton = ButtonFactory.GetButton("2");
+		TwoButton.setBounds(91, 318, 73, 53);
+		frame.getContentPane().add(TwoButton);
+
+		
+		ThreeButton = ButtonFactory.GetButton("3");
+		ThreeButton.setBounds(174, 318, 73, 53);
+		frame.getContentPane().add(ThreeButton);
+
+		
+		FourButton = ButtonFactory.GetButton("4");
+		FourButton.setBounds(10, 254, 73, 53);
+		frame.getContentPane().add(FourButton);
+
+		
+		FiveButton = ButtonFactory.GetButton("5");
+		FiveButton.setBounds(91, 254, 73, 53);
+		frame.getContentPane().add(FiveButton);
+
+		
+		SixButton = ButtonFactory.GetButton("6");
+		SixButton.setBounds(174, 254, 73, 53);
+		frame.getContentPane().add(SixButton);
+                        //6
+		
+		SevenButton = ButtonFactory.GetButton("7");
+		SevenButton.setBounds(10, 190, 73, 53);
+		frame.getContentPane().add(SevenButton);
+						//7
+		
+		EightButton = ButtonFactory.GetButton("8");
+		EightButton.setBounds(91, 190, 73, 53);
+		frame.getContentPane().add(EightButton);
+						//8
+		
+		NineButton = ButtonFactory.GetButton("9");
+		NineButton.setBounds(174, 190, 73, 53);
+		frame.getContentPane().add(NineButton);
+						//9
+		
+		PeriodButton = ButtonFactory.GetButton(".");
+		PeriodButton.setBounds(93, 382, 73, 53);
+		frame.getContentPane().add(PeriodButton);
+					//10
+		
+		
+		PlusButton = ButtonFactory.GetButton("+");
+		PlusButton.setBounds(257, 190, 73, 53);
+		frame.getContentPane().add(PlusButton); 	//11
+
+		
+
+		MinusButton = ButtonFactory.GetButton("-");
+		MinusButton.setBounds(257, 254, 73, 53);	//12
+		frame.getContentPane().add(MinusButton);
+
+		
+		MultiplicationButton = ButtonFactory.GetButton("X");
+		MultiplicationButton.setBounds(257, 318, 73, 53);
+		frame.getContentPane().add(MultiplicationButton);
+				//13
+		
+		DivisionButton = ButtonFactory.GetButton("/");
+		DivisionButton.setText("/");
+		DivisionButton.setBounds(257, 126, 73, 53);			//14
+		frame.getContentPane().add(DivisionButton);
+		
+		PercentageButton = ButtonFactory.GetButton("%");
+		PercentageButton.setBounds(174, 126, 73, 53);	//15
+		frame.getContentPane().add(PercentageButton);
+		
+		EqualsButton = ButtonFactory.GetButton("=");
+		EqualsButton.setBounds(257, 382, 73, 53);
+		frame.getContentPane().add(EqualsButton);
+					//16
+		
+		ClearButton = ButtonFactory.GetButton("Clear");
+		ClearButton.setText("Clear");				
+		ClearButton.setBounds(91, 126, 73, 53);			//17
+		frame.getContentPane().add(ClearButton);
+		
+		PlusMinus = ButtonFactory.GetButton("+/-");
+		PlusMinus.setBounds(174, 382, 73, 53);			//18
+		frame.getContentPane().add(PlusMinus);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setBounds(10, 62, 337, 53);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+	
+		
+		BackSpaceButton = ButtonFactory.GetButton("Backspace");
+		BackSpaceButton.setText("<--");
+		BackSpaceButton.setBounds(10, 126, 73, 53);	//19
+		frame.getContentPane().add(BackSpaceButton);
+		
+		MainMenu = ButtonFactory.GetButton("MainMenu");
+		MainMenu.setText("Back");
+		MainMenu.setBounds(10, 11, 73, 41);
+		frame.getContentPane().add(MainMenu);
+		this.AddAllTolist();
+		this.AssignListeners();
+
 		frame.setVisible(true);
 	}
 }
