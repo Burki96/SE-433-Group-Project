@@ -49,8 +49,10 @@ public class MainMenu {
 	private void privTurnoff() 
 	{
 		Button1 = ButtonFactory.returnButton(this.Button1);
-		mainWindowFrame.setVisible(false);
-		mainWindowFrame = null;
+		if(mainWindowFrame != null) {
+			mainWindowFrame.setVisible(false);
+			mainWindowFrame = null;
+		}
 	}
 	private void initialize() 
 	{

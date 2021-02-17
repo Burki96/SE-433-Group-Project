@@ -99,8 +99,10 @@ public class CalculatorWindow {
 		PercentageButton = ButtonFactory.returnButton(this.PercentageButton);
 		this.textField = null;
 		this.list.clear();
-		frame.setVisible(false);
-		frame = null;
+		if(frame != null) {
+			frame.setVisible(false);
+			frame = null;
+		}
 		
 	}
 	//starts the calculator window
