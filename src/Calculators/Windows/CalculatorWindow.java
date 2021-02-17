@@ -37,6 +37,11 @@ public class CalculatorWindow {
 	private Operation opString;
 	private String anString;
 	private JButton DivisionButton;
+	private JButton BackSpaceButton;
+	private JButton PercentageButton;
+	private JButton PeriodButton;
+	private JButton PlusMinus;
+	private JButton MainMenu;
 	private static CalculatorWindow GetInstance()
 	{
 		if(instance == null) 
@@ -88,15 +93,29 @@ public class CalculatorWindow {
 		DivisionButton = ButtonFactory.returnButton(this.DivisionButton);
 		MinusButton = ButtonFactory.returnButton(this.MinusButton);
 		PlusButton = ButtonFactory.returnButton(this.PlusButton);
+		ClearButton = ButtonFactory.returnButton(this.ClearButton);
+		BackSpaceButton = ButtonFactory.returnButton(this.BackSpaceButton);
+		PeriodButton = ButtonFactory.returnButton(this.PeriodButton);
+		PercentageButton = ButtonFactory.returnButton(this.PercentageButton);
 		this.textField = null;
 		this.list.clear();
 		frame.setVisible(false);
+		frame = null;
 		
 	}
 	//starts the calculator window
 	public static void Start() 
 	{
 		GetInstance().initialize();
+	}
+	
+	public static void PressButton(String c)
+	{
+		
+	}
+	private void privPressButton(String c)
+	{
+		
 	}
 	public static JButton GetButton(int i) 
 	{
@@ -151,12 +170,12 @@ public class CalculatorWindow {
 		
 		
 		frame = new BaseFrame();
-		frame.setBounds(100, 100, 377, 485);
+		frame.setBounds(100, 100, 373, 485);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		ZeroButton = ButtonFactory.GetButton("0");
-		ZeroButton.setBounds(91, 382, 73, 53);
+		ZeroButton.setBounds(10, 382, 73, 53);
 		frame.getContentPane().add(ZeroButton);
 		list.add(ZeroButton);                      //0
 		
@@ -193,54 +212,82 @@ public class CalculatorWindow {
 		SevenButton = ButtonFactory.GetButton("7");
 		SevenButton.setBounds(10, 190, 73, 53);
 		frame.getContentPane().add(SevenButton);
-		list.add(SixButton); 
+		list.add(SixButton); 						//7
 		
 		EightButton = ButtonFactory.GetButton("8");
 		EightButton.setBounds(91, 190, 73, 53);
 		frame.getContentPane().add(EightButton);
-		list.add(EightButton); 
+		list.add(EightButton); 						//8
 		
 		NineButton = ButtonFactory.GetButton("9");
 		NineButton.setBounds(174, 190, 73, 53);
 		frame.getContentPane().add(NineButton);
-		list.add(NineButton); 
+		list.add(NineButton); 						//9
 		
+		PeriodButton = ButtonFactory.GetButton(".");
+		PeriodButton.setBounds(93, 382, 73, 53);
+		frame.getContentPane().add(PeriodButton);
+		list.add(PeriodButton);						//10
 		MultiplicationButton = ButtonFactory.GetButton("X");
-		MultiplicationButton.setBounds(282, 318, 73, 53);
+		MultiplicationButton.setBounds(257, 318, 73, 53);
 		frame.getContentPane().add(MultiplicationButton);
-		list.add(MultiplicationButton); 
+		list.add(MultiplicationButton); 				//11
 		
 		MinusButton = ButtonFactory.GetButton("-");
-		MinusButton.setBounds(282, 254, 73, 53);
+		MinusButton.setBounds(257, 254, 73, 53);	//12
 		frame.getContentPane().add(MinusButton);
 		list.add(MinusButton); 
 		
 		PlusButton = ButtonFactory.GetButton("+");
-		PlusButton.setBounds(282, 190, 73, 53);
-		frame.getContentPane().add(PlusButton);
+		PlusButton.setBounds(257, 190, 73, 53);
+		frame.getContentPane().add(PlusButton); 	//13
 		list.add(PlusButton); 
 		
+		DivisionButton = ButtonFactory.GetButton("/");
+		DivisionButton.setText("/");
+		DivisionButton.setBounds(257, 126, 73, 53);
+		list.add(DivisionButton);					//14
+		frame.getContentPane().add(DivisionButton);
+		
+		PercentageButton = ButtonFactory.GetButton("%");
+		PercentageButton.setBounds(174, 126, 73, 53);
+		list.add(PercentageButton);				//15
+		frame.getContentPane().add(PercentageButton);
+		
 		EqualsButton = ButtonFactory.GetButton("=");
-		EqualsButton.setBounds(282, 382, 73, 53);
+		EqualsButton.setBounds(257, 382, 73, 53);
 		frame.getContentPane().add(EqualsButton);
-		list.add(EqualsButton); 
+		list.add(EqualsButton); 					//16
 		
 		ClearButton = ButtonFactory.GetButton("Clear");
-		ClearButton.setText("Clear");
-		ClearButton.setBounds(174, 382, 73, 53);
-		list.add(ClearButton);
+		ClearButton.setText("Clear");				
+		ClearButton.setBounds(91, 126, 73, 53);
+		list.add(ClearButton);					//17
 		frame.getContentPane().add(ClearButton);
+		
+		PlusMinus = ButtonFactory.GetButton("+/-");
+		PlusMinus.setBounds(174, 382, 73, 53);
+		list.add(PlusMinus);					//18
+		frame.getContentPane().add(PlusMinus);
 		
 		textField = new JTextField();
 		textField.setEditable(false);
-		textField.setBounds(10, 48, 345, 53);
+		textField.setBounds(10, 62, 337, 53);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+	
 		
-		DivisionButton = ButtonFactory.GetButton("%");
-		DivisionButton.setText("%");
-		DivisionButton.setBounds(282, 126, 73, 53);
-		frame.getContentPane().add(DivisionButton);
+		BackSpaceButton = ButtonFactory.GetButton("Backspace");
+		BackSpaceButton.setText("<--");
+		BackSpaceButton.setBounds(10, 126, 73, 53);
+		list.add(BackSpaceButton);				//19
+		frame.getContentPane().add(BackSpaceButton);
+		
+		MainMenu = ButtonFactory.GetButton("MainMenu");
+		MainMenu.setText("Back");
+		MainMenu.setBounds(10, 11, 73, 41);
+		list.add(MainMenu);	
+		frame.getContentPane().add(MainMenu);
 		
 		ZeroButton.addActionListener(CalculatorActionListenerManager.GetListener(0));
 		OneButton.addActionListener(CalculatorActionListenerManager.GetListener(1));
@@ -252,12 +299,17 @@ public class CalculatorWindow {
 		SevenButton.addActionListener(CalculatorActionListenerManager.GetListener(7));
 		EightButton.addActionListener(CalculatorActionListenerManager.GetListener(8));
 		NineButton.addActionListener(CalculatorActionListenerManager.GetListener(9));
-		PlusButton.addActionListener(CalculatorActionListenerManager.GetListener(10));
-		MinusButton.addActionListener(CalculatorActionListenerManager.GetListener(11));
-		MultiplicationButton.addActionListener(CalculatorActionListenerManager.GetListener(12));
-		DivisionButton.addActionListener(CalculatorActionListenerManager.GetListener(13));
-		EqualsButton.addActionListener(CalculatorActionListenerManager.GetListener(14));
-		
+		PeriodButton.addActionListener(CalculatorActionListenerManager.GetListener(10));
+		PlusButton.addActionListener(CalculatorActionListenerManager.GetListener(11));
+		MinusButton.addActionListener(CalculatorActionListenerManager.GetListener(12));
+		MultiplicationButton.addActionListener(CalculatorActionListenerManager.GetListener(13));
+		DivisionButton.addActionListener(CalculatorActionListenerManager.GetListener(14));
+		PercentageButton.addActionListener(CalculatorActionListenerManager.GetListener(15));
+		EqualsButton.addActionListener(CalculatorActionListenerManager.GetListener(16));
+		ClearButton.addActionListener(CalculatorActionListenerManager.GetListener(17));
+		PlusMinus.addActionListener(CalculatorActionListenerManager.GetListener(18));
+		BackSpaceButton.addActionListener(CalculatorActionListenerManager.GetListener(19));
+		MainMenu.addActionListener(CalculatorActionListenerManager.GetListener(20));
 		frame.setVisible(true);
 	}
 }

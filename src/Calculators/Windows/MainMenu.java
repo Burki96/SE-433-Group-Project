@@ -27,7 +27,7 @@ public class MainMenu {
 	}
 	private MainMenu() {
 		switch1 = new MainMenuCalculatorSwitch();
-		mainWindowFrame = new BaseFrame();
+		
 	}
 	public static JFrame GetWindow() 
 	{
@@ -50,9 +50,11 @@ public class MainMenu {
 	{
 		Button1 = ButtonFactory.returnButton(this.Button1);
 		mainWindowFrame.setVisible(false);
+		mainWindowFrame = null;
 	}
 	private void initialize() 
 	{
+		mainWindowFrame = new BaseFrame();
 		mainWindowFrame.setTitle("MainMenu");
 		mainWindowFrame.setBounds(100, 100, 594, 460);
 		mainWindowFrame.getContentPane().setLayout(null);
