@@ -6,6 +6,7 @@ public class Calculator{
 
 	//hi, this is arturo chaidez
 	public static void main(String[] args) {
+		//comment this out if you dont want to use the main menu
 		
 		MainProgramSingleton.Start();
 //		CalculatorWindow.Start();
