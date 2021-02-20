@@ -3,6 +3,7 @@ package Calculators.Windows;
 import javax.swing.JFrame;
 
 import Calculators.ButtonEnum;
+import Calculators.BasicCalculator.BasicCalculator;
 import Calculators.Factories.ButtonFactory;
 import Calculators.Factories.CalculatorActionListenerManager;
 import Calculators.Operations.Operation;
@@ -33,16 +34,13 @@ public class CalculatorWindow {
 	private BaseFrame frame;
 	private JButton ClearButton;
 	private JTextField textField;
-	private Operation opString;
-	private String anString;
 	private JButton DivisionButton;
 	private JButton BackSpaceButton;
 	private JButton PercentageButton;
 	private JButton PeriodButton;
 	private JButton PlusMinus;
 	private JButton MainMenu;
-	private double FirstNumber;
-	private double SecondNumber;
+	private BasicCalculator cal;
 	private static CalculatorWindow GetInstance()
 	{
 		if(instance == null) 
@@ -53,8 +51,12 @@ public class CalculatorWindow {
 	}
 	private CalculatorWindow() {
 		this.list = new ArrayList<JButton>();
-		
+		this.cal = new BasicCalculator();
 		//initialize();
+	}
+	public static BasicCalculator GetCalculator() 
+	{
+		return GetInstance().cal;
 	}
 	//Hard terminate, does soft terminate, but will also deletes the singleton
 	public static void Terminate() 
@@ -114,7 +116,7 @@ public class CalculatorWindow {
 	}
 	public static double GetAnswer()
 	{
-		return Double.parseDouble(GetInstance().anString);
+		return Double.parseDouble(GetInstance().cal.GetAnswer());
 	}
 	public static void PressButton(ButtonEnum c)
 	{
@@ -140,34 +142,22 @@ public class CalculatorWindow {
 	{
 		GetInstance().privCompute();
 	}
-	public static double getFirstNumber() 
-	{
-		return GetInstance().FirstNumber;
-	}
-	public static void PassResult(double Result)
-	{
-		GetInstance().privPassResult(Result);
-	}
-	private void privPassResult(double Result) 
-	{
-		this.anString = String.format("%.2f", Result);
-		this.textField.setText(this.anString);
-		
-	}
-	public static double getSecondNumber() 
-	{
-		return GetInstance().SecondNumber;
-	}
+
+
 	private void privCompute() 
 	{
-		this.SecondNumber = Double.parseDouble(textField.getText());
-		this.opString.Execute();
+		double SecondNumber = Double.parseDouble(textField.getText());
+		cal.SetSecondNumber(SecondNumber);
+		this.cal.Execute();
+		this.textField.setText(this.cal.GetAnswer());
+		
 	}
 	private void privDoArthimeticAction(Operation c) 
 	{
-		this.FirstNumber = Double.parseDouble(textField.getText());
+		double first = Double.parseDouble(textField.getText());
+		cal.SetFirstNumber(first);
 		this.textField.setText("");
-		this.opString = c;
+		this.cal.SetOperation(c);
 	}
 	private void AssignListeners()
 	{
