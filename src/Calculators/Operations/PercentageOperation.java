@@ -11,7 +11,7 @@ public class PercentageOperation extends Operation
 	}
 	public void Execute()
 	{
-		double Result= (calculator.GetFirstNumber() * calculator.GetSecondNumber()) / 100.0;
+		double Result= calculator.GetFirstNumber() % calculator.GetSecondNumber();
 		calculator.PassResult(Result);
 	}
 }

@@ -15,7 +15,6 @@ public class BackSpaceAction implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		String backString = null;
 		String currentString = CalculatorWindow.GetText();
-
 		if(currentString.length() > 0)
 		{
 			BackSpaceSpring.append(currentString);
@@ -23,12 +22,8 @@ public class BackSpaceAction implements ActionListener
 			backString = BackSpaceSpring.toString();
 			CalculatorWindow.SetText(backString);
 			BackSpaceSpring.delete(0, BackSpaceSpring.length());
-			if(backString.isBlank()) 
-			{
-				CalculatorWindow.SetText("0");
-			} 
 		}
-
+		
 	}
 
 }

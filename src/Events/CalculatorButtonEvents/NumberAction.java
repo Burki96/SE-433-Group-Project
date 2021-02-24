@@ -14,11 +14,6 @@ public class NumberAction implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		String aString = CalculatorWindow.GetText();
-		if(aString.compareTo("0") == 0) 
-		{
-			CalculatorWindow.SetText(" ");
-		}
 		String numberString = CalculatorWindow.GetText() + CalculatorWindow.GetButton(buttonNumber).getText();
 		CalculatorWindow.SetText(numberString);
 	}

@@ -10,7 +10,7 @@ public class ClearAction implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		CalculatorWindow.SetText("0");
+		CalculatorWindow.SetText(" ");
 		
 	}
 
