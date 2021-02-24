@@ -33,8 +33,8 @@ public class CalculatorActionListenerManager {
 	private CalculatorActionListenerManager() 
 	{
 		list = new ArrayList<ActionListener>();
-		
-		for(int i = 0; i < 11; i++) 
+		int a = 11;
+		for(int i = 0; i < a; i++) 
 		{
 			list.add(new NumberAction(i));
 		}

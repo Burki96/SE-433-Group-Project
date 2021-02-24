@@ -9,7 +9,8 @@ public class ButtonFactory {
 		private ButtonFactory() 
 		{
 			list = new ArrayList<JButton>();
-			privCreate(10);
+			int a = 10;
+			privCreate(a);
 		}
 		private static ButtonFactory GetInstance() 
 		{
