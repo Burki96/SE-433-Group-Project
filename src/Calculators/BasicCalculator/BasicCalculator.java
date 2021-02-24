@@ -7,7 +7,8 @@ public class BasicCalculator
 {
 	public BasicCalculator() 
 	{
-		
+		this.FirstNumber = 0;
+		this.SecondNumber = 0;
 	}
 	public String GetAnswer() 
 	{
@@ -37,6 +38,10 @@ public class BasicCalculator
 	{
 		this.op = c;
 	}
+	public double GetResultNumber() 
+	{
+		return this.Result;
+	}
 	public String GetResult()
 	{
 		return this.Answer;
@@ -44,10 +49,12 @@ public class BasicCalculator
 	public void PassResult(double Result) 
 	{
 		this.Answer = String.format("%.2f", Result);
+		this.Result = Result;
 		//this.textField.setText(this.anString);
 	}
 	private double FirstNumber;
 	private double SecondNumber;
 	private Operation op;
 	private String Answer;
+	private double Result;
 }
