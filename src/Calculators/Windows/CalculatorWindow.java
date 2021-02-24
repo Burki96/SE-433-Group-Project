@@ -116,7 +116,7 @@ public class CalculatorWindow {
 	}
 	public static double GetAnswer()
 	{
-		return Double.parseDouble(GetInstance().cal.GetAnswer());
+		return GetInstance().cal.GetResultNumber();
 	}
 	public static void PressButton(ButtonEnum c)
 	{
@@ -143,7 +143,6 @@ public class CalculatorWindow {
 		GetInstance().privCompute();
 	}
 
-
 	private void privCompute() 
 	{
 		double SecondNumber = Double.parseDouble(textField.getText());
@@ -156,7 +155,7 @@ public class CalculatorWindow {
 	{
 		double first = Double.parseDouble(textField.getText());
 		cal.SetFirstNumber(first);
-		this.textField.setText("");
+		this.textField.setText("0");
 		this.cal.SetOperation(c);
 	}
 	private void AssignListeners()
@@ -317,6 +316,7 @@ public class CalculatorWindow {
 		textField = new JTextField();
 		textField.setEditable(false);
 		textField.setBounds(10, 62, 337, 53);
+		textField.setText("0");
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 	
