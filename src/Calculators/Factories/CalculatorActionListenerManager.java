@@ -8,7 +8,7 @@ import Calculators.Operations.MinusOperation;
 import Calculators.Operations.MultiplicationOperation;
 import Calculators.Operations.PercentageOperation;
 import Calculators.Operations.PlusOperation;
-import Calculators.Windows.CalculatorController;
+import Controllers.CalculatorController;
 import Events.CalculatorButtonEvents.ArithmeticAction;
 import Events.CalculatorButtonEvents.BackSpaceAction;
 import Events.CalculatorButtonEvents.CalculatorMainMenuSwitch;

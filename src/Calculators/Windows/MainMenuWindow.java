@@ -2,51 +2,27 @@ package Calculators.Windows;
 
 import java.awt.Font;
 
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
 import javax.swing.JLabel;
 
 import Calculators.Factories.ButtonFactory;
 import Events.MainMenuCalculatorSwitch;
 
-public class MainMenu {
+public class MainMenuWindow {
 
 	private BaseFrame mainWindowFrame;
 	private JButton Button1;
-	private static MainMenu instance = null;
 	private MainMenuCalculatorSwitch switch1;
-	private static MainMenu GetInstance()
+	public JFrame GetWindow() 
 	{
-		if(instance == null) 
-		{
-			instance = new MainMenu();
-		}
-		return instance;
+		return this.mainWindowFrame;
 	}
-	private MainMenu() {
+	public MainMenuWindow() {
+		//initialize();
 		switch1 = new MainMenuCalculatorSwitch();
-		
 	}
-	public static JFrame GetWindow() 
-	{
-		return GetInstance().mainWindowFrame;
-	}
-	
-	public static void Start() 
-	{
-		GetInstance().initialize();
-	}
-	public static void Terminate() 
-	{
-		instance = null;
-	}
-	public static void Turnoff() {
-		GetInstance().privTurnoff();
-	}
-
-	private void privTurnoff() 
+	public void Turnoff() 
 	{
 		Button1 = ButtonFactory.returnButton(this.Button1);
 		if(mainWindowFrame != null) {
@@ -54,8 +30,10 @@ public class MainMenu {
 			mainWindowFrame = null;
 		}
 	}
-	private void initialize() 
-	{
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	public void initialize() {
 		mainWindowFrame = new BaseFrame();
 		mainWindowFrame.setTitle("MainMenu");
 		mainWindowFrame.setBounds(100, 100, 594, 460);
@@ -74,4 +52,5 @@ public class MainMenu {
 		mainWindowFrame.getContentPane().add(lblNewLabel);
 		mainWindowFrame.setVisible(true);
 	}
+
 }

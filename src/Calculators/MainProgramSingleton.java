@@ -3,7 +3,7 @@ package Calculators;
 
 import javax.swing.JFrame;
 
-import Calculators.Windows.MainMenu;
+import Calculators.Windows.MainMenuController;
 import Events.ClosingEvent;
 
 
@@ -38,7 +38,7 @@ public class MainProgramSingleton
 	}
 	private void privStart() 
 	{
-		MainMenu.Start();
+		MainMenuController.Start();
 	}
 	public static void Terminate() 
 	{

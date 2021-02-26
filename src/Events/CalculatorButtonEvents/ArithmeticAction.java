@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Calculators.Operations.Operation;
-import Calculators.Windows.CalculatorController;
+import Controllers.CalculatorController;
 
 public class ArithmeticAction implements ActionListener{
 	private Operation symbol;
