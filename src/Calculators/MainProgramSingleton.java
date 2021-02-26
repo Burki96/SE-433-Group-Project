@@ -3,7 +3,7 @@ package Calculators;
 
 import javax.swing.JFrame;
 
-import Calculators.Windows.MainMenuController;
+import Controllers.MainMenuController;
 import Events.ClosingEvent;
 
 

@@ -6,8 +6,8 @@ import java.awt.event.WindowEvent;
 import Calculators.MainProgramSingleton;
 import Calculators.Factories.ButtonFactory;
 import Calculators.Factories.CalculatorActionListenerManager;
-import Calculators.Windows.MainMenuController;
 import Controllers.CalculatorController;
+import Controllers.MainMenuController;
 
 public class ClosingEvent extends WindowAdapter {
 	

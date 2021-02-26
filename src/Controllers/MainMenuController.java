@@ -1,7 +1,9 @@
-package Calculators.Windows;
+package Controllers;
 
 
 import javax.swing.JFrame;
+
+import Calculators.Windows.MainMenuWindow;
 
 
 public class MainMenuController {
