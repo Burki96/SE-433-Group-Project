@@ -5,14 +5,12 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Calculators.Factories.ButtonFactory;
 import ComboBoxComponents.ConversionComponent;
 
-import javax.swing.DropMode;
 import javax.swing.JButton;
 import java.awt.Color;
-import javax.swing.JToggleButton;
 import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import java.awt.Font;
 
@@ -26,10 +24,27 @@ public class UnitConverterWindow {
 	private JLabel InputLabel;
 
 
-	public UnitConverterWindow() {
+	public UnitConverterWindow() 
+	{
 		//initialize();
 	}
-
+	public void PressConvert() 
+	{
+		ConvertButton.getActionListeners()[0].actionPerformed(null);
+	}
+	public String GetText() 
+	{
+		return this.InputField.getText();
+	}
+	public void Shutdown() 
+	{
+		
+		if(frame != null) {
+			frame.setVisible(false);
+			frame = null;
+		}
+		
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 * @wbp.parser.entryPoint
@@ -56,8 +71,8 @@ public class UnitConverterWindow {
 		OutputField.setBounds(389, 170, 143, 49);
 		frame.getContentPane().add(OutputField);
 		
-		ConvertButton = new JButton("Convert");
-		ConvertButton.setBounds(236, 170, 143, 57);
+		ConvertButton = ButtonFactory.GetButton("Convert",236, 170, 143, 57);
+		//ConvertButton.setBounds(236, 170, 143, 57);
 		frame.getContentPane().add(ConvertButton);
 		comboBox = new JComboBox<ConversionComponent>();
 		comboBox.setBounds(236, 254, 143, 22);

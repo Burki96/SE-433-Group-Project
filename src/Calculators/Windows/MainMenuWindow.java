@@ -46,8 +46,8 @@ public class MainMenuWindow {
 		mainWindowFrame.setBounds(100, 100, 594, 460);
 		mainWindowFrame.getContentPane().setLayout(null);
 		
-		Button1 = ButtonFactory.GetButton("Calculator");
-		Button1.setBounds(211, 154, 134, 54);
+		Button1 = ButtonFactory.GetButton("Calculator",211, 154, 134, 54);
+		//Button1.setBounds(211, 154, 134, 54);
 		mainWindowFrame.getContentPane().add(Button1);
 		
 		
@@ -58,10 +58,10 @@ public class MainMenuWindow {
 		lblNewLabel.setBounds(171, 58, 231, 41);
 		mainWindowFrame.getContentPane().add(lblNewLabel);
 		
-		Button2 = ButtonFactory.GetButton("Converter");
+		Button2 = ButtonFactory.GetButton("Converter",211, 219, 134, 54);
 		Button2.setText("Unit Converter");
 		
-		Button2.setBounds(211, 219, 134, 54);
+		//Button2.setBounds(211, 219, 134, 54);
 		Button2.addActionListener(switch2);
 		mainWindowFrame.getContentPane().add(Button2);
 		mainWindowFrame.setVisible(true);

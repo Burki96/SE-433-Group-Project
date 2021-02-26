@@ -31,14 +31,15 @@ public class ButtonFactory {
 				}
 			}
 		}
-		public static JButton GetButton(String name) 
+		public static JButton GetButton(String name,int x, int y,int width,int height) 
 		{
-			return GetInstance().privGetButton(name);
+			return GetInstance().privGetButton(name,x,y,width,height);
 		}
-		private JButton privGetButton(String name) 
+		private JButton privGetButton(String name,int x, int y,int width,int height) 
 		{
 			privCreate(10);
 			JButton rButton = list.remove(0);
+			rButton.setBounds(x, y, width, height);
 			rButton.setText(name);
 			return rButton;
 		}

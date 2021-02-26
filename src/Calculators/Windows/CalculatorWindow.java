@@ -150,99 +150,99 @@ public class CalculatorWindow {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		ZeroButton = ButtonFactory.GetButton("0");
-		ZeroButton.setBounds(10, 382, 73, 53);
+		ZeroButton = ButtonFactory.GetButton("0",10, 382, 73, 53);
+		//ZeroButton.setBounds(10, 382, 73, 53);
 		frame.getContentPane().add(ZeroButton);
 		
 		
-		OneButton = ButtonFactory.GetButton("1");
-		OneButton.setBounds(10, 318, 73, 53);
+		OneButton = ButtonFactory.GetButton("1",10, 318, 73, 53);
+		//OneButton.setBounds(10, 318, 73, 53);
 		frame.getContentPane().add(OneButton);
 		
 		
-		TwoButton = ButtonFactory.GetButton("2");
-		TwoButton.setBounds(91, 318, 73, 53);
+		TwoButton = ButtonFactory.GetButton("2",91, 318, 73, 53);
+		//TwoButton.setBounds(91, 318, 73, 53);
 		frame.getContentPane().add(TwoButton);
 
 		
-		ThreeButton = ButtonFactory.GetButton("3");
-		ThreeButton.setBounds(174, 318, 73, 53);
+		ThreeButton = ButtonFactory.GetButton("3",174, 318, 73, 53);
+		//ThreeButton.setBounds(174, 318, 73, 53);
 		frame.getContentPane().add(ThreeButton);
 
 		
-		FourButton = ButtonFactory.GetButton("4");
-		FourButton.setBounds(10, 254, 73, 53);
+		FourButton = ButtonFactory.GetButton("4",10, 254, 73, 53);
+		//FourButton.setBounds(10, 254, 73, 53);
 		frame.getContentPane().add(FourButton);
 
 		
-		FiveButton = ButtonFactory.GetButton("5");
-		FiveButton.setBounds(91, 254, 73, 53);
+		FiveButton = ButtonFactory.GetButton("5",91, 254, 73, 53);
+		//FiveButton.setBounds(91, 254, 73, 53);
 		frame.getContentPane().add(FiveButton);
 
 		
-		SixButton = ButtonFactory.GetButton("6");
-		SixButton.setBounds(174, 254, 73, 53);
+		SixButton = ButtonFactory.GetButton("6",174, 254, 73, 53);
+		//SixButton.setBounds(174, 254, 73, 53);
 		frame.getContentPane().add(SixButton);
                         //6
 		
-		SevenButton = ButtonFactory.GetButton("7");
-		SevenButton.setBounds(10, 190, 73, 53);
+		SevenButton = ButtonFactory.GetButton("7",10, 190, 73, 53);
+		//SevenButton.setBounds(10, 190, 73, 53);
 		frame.getContentPane().add(SevenButton);
 						//7
 		
-		EightButton = ButtonFactory.GetButton("8");
-		EightButton.setBounds(91, 190, 73, 53);
+		EightButton = ButtonFactory.GetButton("8",91, 190, 73, 53);
+//		EightButton.setBounds(91, 190, 73, 53);
 		frame.getContentPane().add(EightButton);
 						//8
 		
-		NineButton = ButtonFactory.GetButton("9");
-		NineButton.setBounds(174, 190, 73, 53);
+		NineButton = ButtonFactory.GetButton("9",174, 190, 73, 53);
+//		NineButton.setBounds(174, 190, 73, 53);
 		frame.getContentPane().add(NineButton);
 						//9
 		
-		PeriodButton = ButtonFactory.GetButton(".");
-		PeriodButton.setBounds(93, 382, 73, 53);
+		PeriodButton = ButtonFactory.GetButton(".",93, 382, 73, 53);
+//		PeriodButton.setBounds(93, 382, 73, 53);
 		frame.getContentPane().add(PeriodButton);
 					//10
 		
 		
-		PlusButton = ButtonFactory.GetButton("+");
-		PlusButton.setBounds(257, 190, 73, 53);
+		PlusButton = ButtonFactory.GetButton("+",257, 190, 73, 53);
+//		PlusButton.setBounds(257, 190, 73, 53);
 		frame.getContentPane().add(PlusButton); 	//11
 
 		
 
-		MinusButton = ButtonFactory.GetButton("-");
-		MinusButton.setBounds(257, 254, 73, 53);	//12
+		MinusButton = ButtonFactory.GetButton("-",257, 254, 73, 53);
+//		MinusButton.setBounds(257, 254, 73, 53);	//12
 		frame.getContentPane().add(MinusButton);
 
 		
-		MultiplicationButton = ButtonFactory.GetButton("X");
-		MultiplicationButton.setBounds(257, 318, 73, 53);
+		MultiplicationButton = ButtonFactory.GetButton("X",257, 318, 73, 53);
+//		MultiplicationButton.setBounds(257, 318, 73, 53);
 		frame.getContentPane().add(MultiplicationButton);
 				//13
 		
-		DivisionButton = ButtonFactory.GetButton("/");
-		DivisionButton.setText("/");
-		DivisionButton.setBounds(257, 126, 73, 53);			//14
+		DivisionButton = ButtonFactory.GetButton("/",257, 126, 73, 53);
+		//DivisionButton.setText("/");
+		//DivisionButton.setBounds(257, 126, 73, 53);			//14
 		frame.getContentPane().add(DivisionButton);
 		
-		PercentageButton = ButtonFactory.GetButton("%");
+		PercentageButton = ButtonFactory.GetButton("%",174, 126, 73, 53);
 		PercentageButton.setBounds(174, 126, 73, 53);	//15
 		frame.getContentPane().add(PercentageButton);
 		
-		EqualsButton = ButtonFactory.GetButton("=");
-		EqualsButton.setBounds(257, 382, 73, 53);
+		EqualsButton = ButtonFactory.GetButton("=",257, 382, 73, 53);
+	//	EqualsButton.setBounds(257, 382, 73, 53);
 		frame.getContentPane().add(EqualsButton);
 					//16
 		
-		ClearButton = ButtonFactory.GetButton("Clear");
-		ClearButton.setText("Clear");				
-		ClearButton.setBounds(91, 126, 73, 53);			//17
+		ClearButton = ButtonFactory.GetButton("Clear",91, 126, 73, 53);
+		//ClearButton.setText("Clear");				
+		//ClearButton.setBounds(91, 126, 73, 53);			//17
 		frame.getContentPane().add(ClearButton);
 		
-		PlusMinus = ButtonFactory.GetButton("+/-");
-		PlusMinus.setBounds(174, 382, 73, 53);			//18
+		PlusMinus = ButtonFactory.GetButton("+/-",174, 382, 73, 53);
+//		PlusMinus.setBounds(174, 382, 73, 53);			//18
 		frame.getContentPane().add(PlusMinus);
 		
 		textField = new JTextField();
@@ -253,14 +253,12 @@ public class CalculatorWindow {
 		textField.setColumns(10);
 	
 		
-		BackSpaceButton = ButtonFactory.GetButton("Backspace");
-		BackSpaceButton.setText("<--");
-		BackSpaceButton.setBounds(10, 126, 73, 53);	//19
+		BackSpaceButton = ButtonFactory.GetButton("<--",10, 126, 73, 53);
+//		BackSpaceButton.setBounds(10, 126, 73, 53);	//19
 		frame.getContentPane().add(BackSpaceButton);
 		
-		MainMenu = ButtonFactory.GetButton("MainMenu");
-		MainMenu.setText("Back");
-		MainMenu.setBounds(10, 11, 73, 41);
+		MainMenu = ButtonFactory.GetButton("MainMenu",10, 11, 73, 41);
+//		MainMenu.setBounds(10, 11, 73, 41);
 		frame.getContentPane().add(MainMenu);
 		this.AddAllTolist();
 		this.AssignListeners();
