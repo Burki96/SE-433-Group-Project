@@ -2,7 +2,7 @@ package Events;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import Calculators.Windows.CalculatorWindow;
+import Calculators.Windows.CalculatorController;
 import Calculators.Windows.MainMenu;
 public class MainMenuCalculatorSwitch implements ActionListener {
 
@@ -11,7 +11,7 @@ public class MainMenuCalculatorSwitch implements ActionListener {
 		// TODO Auto-generated method stub
 		
 		MainMenu.Turnoff();
-		CalculatorWindow.Start();
+		CalculatorController.Start();
 	}
 
 }

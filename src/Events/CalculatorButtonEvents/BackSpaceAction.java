@@ -3,7 +3,7 @@ package Events.CalculatorButtonEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import Calculators.Windows.CalculatorWindow;
+import Calculators.Windows.CalculatorController;
 
 public class BackSpaceAction implements ActionListener
 {
@@ -14,18 +14,18 @@ public class BackSpaceAction implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String backString = null;
-		String currentString = CalculatorWindow.GetText();
+		String currentString = CalculatorController.GetText();
 
 		if(currentString.length() > 0)
 		{
 			BackSpaceSpring.append(currentString);
 			BackSpaceSpring.deleteCharAt(currentString.length() - 1);
 			backString = BackSpaceSpring.toString();
-			CalculatorWindow.SetText(backString);
+			CalculatorController.SetText(backString);
 			BackSpaceSpring.delete(0, BackSpaceSpring.length());
 			if(backString.isBlank()) 
 			{
-				CalculatorWindow.SetText("0");
+				CalculatorController.SetText("0");
 			} 
 		}
 

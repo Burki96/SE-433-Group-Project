@@ -1,6 +1,5 @@
 package Calculators;
 
-import Calculators.Windows.CalculatorWindow;
 
 public class Calculator{
 

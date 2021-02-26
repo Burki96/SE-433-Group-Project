@@ -8,7 +8,7 @@ import Calculators.Operations.MinusOperation;
 import Calculators.Operations.MultiplicationOperation;
 import Calculators.Operations.PercentageOperation;
 import Calculators.Operations.PlusOperation;
-import Calculators.Windows.CalculatorWindow;
+import Calculators.Windows.CalculatorController;
 import Events.CalculatorButtonEvents.ArithmeticAction;
 import Events.CalculatorButtonEvents.BackSpaceAction;
 import Events.CalculatorButtonEvents.CalculatorMainMenuSwitch;
@@ -38,11 +38,11 @@ public class CalculatorActionListenerManager {
 		{
 			list.add(new NumberAction(i));
 		}
-		list.add(new ArithmeticAction(new PlusOperation(CalculatorWindow.GetCalculator())));
-		list.add(new ArithmeticAction(new MinusOperation(CalculatorWindow.GetCalculator())));
-		list.add(new ArithmeticAction(new MultiplicationOperation(CalculatorWindow.GetCalculator())));
-		list.add(new ArithmeticAction(new DivisionOperation(CalculatorWindow.GetCalculator())));
-		list.add(new ArithmeticAction(new PercentageOperation(CalculatorWindow.GetCalculator())));
+		list.add(new ArithmeticAction(new PlusOperation(CalculatorController.GetCalculator())));
+		list.add(new ArithmeticAction(new MinusOperation(CalculatorController.GetCalculator())));
+		list.add(new ArithmeticAction(new MultiplicationOperation(CalculatorController.GetCalculator())));
+		list.add(new ArithmeticAction(new DivisionOperation(CalculatorController.GetCalculator())));
+		list.add(new ArithmeticAction(new PercentageOperation(CalculatorController.GetCalculator())));
 		list.add(new EqualAction());
 		list.add(new ClearAction());
 		list.add(new PlusMinusAction());

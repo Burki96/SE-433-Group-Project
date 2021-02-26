@@ -1,21 +1,19 @@
 package Calculators.Windows;
 
-import javax.swing.JFrame;
-
-import Calculators.ButtonEnum;
-import Calculators.BasicCalculator.BasicCalculator;
-import Calculators.Factories.ButtonFactory;
-import Calculators.Factories.CalculatorActionListenerManager;
-import Calculators.Operations.Operation;
 
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import Calculators.ButtonEnum;
+import Calculators.Factories.ButtonFactory;
+import Calculators.Factories.CalculatorActionListenerManager;
 
 public class CalculatorWindow {
-	private static CalculatorWindow instance = null;
+
+	//private JFrame frame;
 	private ArrayList<JButton> list;
 	private JButton SevenButton;
 	private JButton ZeroButton;
@@ -40,46 +38,16 @@ public class CalculatorWindow {
 	private JButton PeriodButton;
 	private JButton PlusMinus;
 	private JButton MainMenu;
-	private BasicCalculator cal;
-	private static CalculatorWindow GetInstance()
-	{
-		if(instance == null) 
-		{
-			instance = new CalculatorWindow();
-		}
-		return instance;
-	}
-	private CalculatorWindow() {
+
+	/**
+	 * Create the application.
+	 */
+	public CalculatorWindow() {
 		this.list = new ArrayList<JButton>();
-		this.cal = new BasicCalculator();
 		//initialize();
 	}
-	public static BasicCalculator GetCalculator() 
-	{
-		return GetInstance().cal;
-	}
-	//Hard terminate, does soft terminate, but will also deletes the singleton
-	public static void Terminate() 
-	{
-		//GetInstance().list.clear();
-		GetInstance().privShutdown();
-		instance = null;
-	}
-	//Soft terminate, clears list and returns all buttons back to the button factory
-	public static void Turnoff() 
-	{
-		GetInstance().privShutdown();
-	}
-	public static String GetText() 
-	{
-		return GetInstance().textField.getText();
-	}
-	//Sets the textbox on the calculator window, for interal use only, not for JUNIT
-	public static void SetText(String s)
-	{
-		GetInstance().textField.setText(s);
-	}
-	private void privShutdown() 
+	
+	public void Shutdown() 
 	{
 		
 		ZeroButton = ButtonFactory.returnButton(this.ZeroButton);
@@ -109,54 +77,21 @@ public class CalculatorWindow {
 		}
 		
 	}
-	//starts the calculator window
-	public static void Start() 
-	{
-		GetInstance().initialize();
-	}
-	public static double GetAnswer()
-	{
-		return GetInstance().cal.GetResultNumber();
-	}
-	public static void PressButton(ButtonEnum c)
-	{
-		GetInstance().privPressButton(c);
-	}
-	private void privPressButton(ButtonEnum c)
-	{
-		list.get(c.ordinal()).getActionListeners()[0].actionPerformed(null);
-	}
-	public static JButton GetButton(int i) 
-	{
-		return GetInstance().privGetButton(i);
-	}
-	private JButton privGetButton(int i)
+	public JButton GetButton(int i) 
 	{
 		return list.get(i);
 	}
-	public static void DoArthimeticAction(Operation c)
+	public void SetText(String tex) 
 	{
-		GetInstance().privDoArthimeticAction(c);
+		this.textField.setText(tex);
 	}
-	public static void Compute()
+	public void PressButton(ButtonEnum name)
 	{
-		GetInstance().privCompute();
+		list.get(name.ordinal()).getActionListeners()[0].actionPerformed(null);
 	}
-
-	private void privCompute() 
+	public String GetText() 
 	{
-		double SecondNumber = Double.parseDouble(textField.getText());
-		cal.SetSecondNumber(SecondNumber);
-		this.cal.Execute();
-		this.textField.setText(this.cal.GetAnswer());
-		
-	}
-	private void privDoArthimeticAction(Operation c) 
-	{
-		double first = Double.parseDouble(textField.getText());
-		cal.SetFirstNumber(first);
-		this.textField.setText("0");
-		this.cal.SetOperation(c);
+		return this.textField.getText();
 	}
 	private void AssignListeners()
 	{
@@ -207,12 +142,9 @@ public class CalculatorWindow {
 		list.add(MainMenu);							//20
 	}
 	/**
-	 * @wbp.parser.entryPoint
+	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		
-		
-		
+	public void initialize() {
 		frame = new BaseFrame();
 		frame.setBounds(100, 100, 373, 485);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -335,4 +267,5 @@ public class CalculatorWindow {
 
 		frame.setVisible(true);
 	}
+
 }

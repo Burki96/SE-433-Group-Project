@@ -3,7 +3,7 @@ package Events.CalculatorButtonEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import Calculators.Windows.CalculatorWindow;
+import Calculators.Windows.CalculatorController;
 
 public class NumberAction implements ActionListener
 {
@@ -14,12 +14,12 @@ public class NumberAction implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		String aString = CalculatorWindow.GetText();
+		String aString = CalculatorController.GetText();
 		if(aString.compareTo("0") == 0) 
 		{
-			CalculatorWindow.SetText(" ");
+			CalculatorController.SetText(" ");
 		}
-		String numberString = CalculatorWindow.GetText() + CalculatorWindow.GetButton(buttonNumber).getText();
-		CalculatorWindow.SetText(numberString);
+		String numberString = CalculatorController.GetText() + CalculatorController.GetButton(buttonNumber).getText();
+		CalculatorController.SetText(numberString);
 	}
 }
