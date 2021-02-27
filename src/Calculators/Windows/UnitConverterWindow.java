@@ -6,7 +6,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import Calculators.Factories.ButtonFactory;
+import Calculators.Operations.KGtoGOperation;
+import Calculators.Operations.Operation;
 import ComboBoxComponents.ConversionComponent;
+import Events.CalculatorButtonEvents.ConvertAction;
 
 import javax.swing.JButton;
 import java.awt.Color;
@@ -16,6 +19,7 @@ import java.awt.Font;
 
 public class UnitConverterWindow {
 
+	private static KGtoGOperation KGtoG = new KGtoGOperation();
 	private JFrame frame;
 	private JTextField InputField;
 	private JTextField OutputField;
@@ -35,6 +39,14 @@ public class UnitConverterWindow {
 	public String GetText() 
 	{
 		return this.InputField.getText();
+	}
+	public void SetOutput(String a)
+	{
+		this.OutputField.setText(a);
+	}
+	public Operation GetCurrentSelected() 
+	{
+		return ((ConversionComponent)this.comboBox.getSelectedItem()).GetOperation();
 	}
 	public void Shutdown() 
 	{
@@ -72,12 +84,12 @@ public class UnitConverterWindow {
 		frame.getContentPane().add(OutputField);
 		
 		ConvertButton = ButtonFactory.GetButton("Convert",236, 170, 143, 57);
-		//ConvertButton.setBounds(236, 170, 143, 57);
+		ConvertButton.addActionListener(new ConvertAction());
 		frame.getContentPane().add(ConvertButton);
 		comboBox = new JComboBox<ConversionComponent>();
 		comboBox.setBounds(236, 254, 143, 22);
 		frame.getContentPane().add(comboBox);
-		comboBox.addItem(new ConversionComponent("KG to G", null));
+		comboBox.addItem(new ConversionComponent("KG to G", KGtoG));
 		comboBox.addItem(new ConversionComponent("G to KG", null));
 		
 		InputLabel = new JLabel("Input");

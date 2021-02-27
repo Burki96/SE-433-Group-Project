@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import Calculators.Windows.UnitConverterWindow;
 import Controllers.MainMenuController;
+import Controllers.UnitConverterController;
 
 public class MainMenuConverterSwitch implements ActionListener
 {
@@ -14,7 +15,7 @@ public class MainMenuConverterSwitch implements ActionListener
 		// TODO Auto-generated method stub
 		
 		MainMenuController.Turnoff();
-		new UnitConverterWindow().initialize();
+		UnitConverterController.Start();
 		//CalculatorController.Start();
 	}
 }

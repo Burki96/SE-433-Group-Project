@@ -144,7 +144,7 @@ public class CalculatorWindow {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public void initialize() {
+	public void initialize(Boolean b) {
 		frame = new BaseFrame();
 		frame.setBounds(100, 100, 373, 485);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -263,7 +263,7 @@ public class CalculatorWindow {
 		this.AddAllTolist();
 		this.AssignListeners();
 
-		frame.setVisible(true);
+		frame.setVisible(b);
 	}
 
 }

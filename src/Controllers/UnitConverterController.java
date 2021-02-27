@@ -68,16 +68,20 @@ public class UnitConverterController
 		GetInstance().converterWindow.PressConvert();
 	}
 
-	public static void DoArthimeticAction(Operation c)
+	public static void Compute()
 	{
-		GetInstance().privConverterAction(c);
+		GetInstance().privConverterAction();
 	}
 
-	private void privConverterAction(Operation c) 
+	private void privConverterAction() 
 	{
 		double firstnumber = Double.parseDouble(converterWindow.GetText());
 		converter.SetFirstNumber(firstnumber);
-	//	this.calculatorWindow.SetText("0");
-		this.converter.SetOperation(c);
+		Operation OpToSendOperation = converterWindow.GetCurrentSelected();
+		this.converter.SetOperation(OpToSendOperation);
+		this.converter.Execute();
+		this.converterWindow.SetOutput(this.converter.GetAnswer());
+
+		
 	}
 }

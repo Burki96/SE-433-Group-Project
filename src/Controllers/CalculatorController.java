@@ -60,7 +60,11 @@ public class CalculatorController {
 	//starts the calculator window
 	public static void Start() 
 	{
-		GetInstance().calculatorWindow.initialize();
+		GetInstance().calculatorWindow.initialize(true);
+	}
+	public static void StartJUNIT() 
+	{
+		GetInstance().calculatorWindow.initialize(false);
 	}
 	public static double GetAnswer()
 	{

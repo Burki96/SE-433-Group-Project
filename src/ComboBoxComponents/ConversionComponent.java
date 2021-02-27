@@ -9,6 +9,7 @@ public class ConversionComponent extends Component
 	public ConversionComponent(String n,Operation op) 
 	{
 		this.setName(n);
+		this.operation = op;
 	}
 	private Operation operation;
     public String toString() {
