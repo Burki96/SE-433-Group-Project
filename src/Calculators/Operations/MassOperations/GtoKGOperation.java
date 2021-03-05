@@ -1,5 +1,6 @@
-package Calculators.Operations;
+package Calculators.Operations.MassOperations;
 
+import Calculators.Operations.Operation;
 import Controllers.UnitConverterController;
 
 public class GtoKGOperation extends Operation
