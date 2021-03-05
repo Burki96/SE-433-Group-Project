@@ -6,6 +6,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import Calculators.Factories.ButtonFactory;
+import Calculators.Operations.GtoKGOperation;
 import Calculators.Operations.KGtoGOperation;
 import Calculators.Operations.Operation;
 import ComboBoxComponents.ConversionComponent;
@@ -20,6 +21,7 @@ import java.awt.Font;
 public class UnitConverterWindow {
 
 	private static KGtoGOperation KGtoG = new KGtoGOperation();
+	private static GtoKGOperation GtoKG = new GtoKGOperation();
 	private JFrame frame;
 	private JTextField InputField;
 	private JTextField OutputField;
@@ -90,7 +92,7 @@ public class UnitConverterWindow {
 		comboBox.setBounds(236, 254, 143, 22);
 		frame.getContentPane().add(comboBox);
 		comboBox.addItem(new ConversionComponent("KG to G", KGtoG));
-		comboBox.addItem(new ConversionComponent("G to KG", null));
+		comboBox.addItem(new ConversionComponent("G to KG", GtoKG));
 		
 		InputLabel = new JLabel("Input");
 		InputLabel.setFont(new Font("Tahoma", Font.PLAIN, 23));
