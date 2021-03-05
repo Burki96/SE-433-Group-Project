@@ -3,16 +3,17 @@ package Calculators.Operations.MassOperations;
 import Calculators.Operations.Operation;
 import Controllers.UnitConverterController;
 
-public class GtoKG extends Operation
+public class KGToOunce extends Operation
 {
-	private final static double number = 1000.0;
+	private final static double number = 35.274;
 
 	@Override
 	public void Execute() 
 	{
 		converter = UnitConverterController.GetConverter();
-		double n = converter.GetFirstNumber() / number;
+		double n = converter.GetFirstNumber() * number;
 		converter.PassResult(n);
 	}
+
 
 }
