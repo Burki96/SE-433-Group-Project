@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Calculators.TempEnums;
+import Calculators.TypeEnums;
 import Calculators.Factories.ButtonFactory;
 import Calculators.Operations.Operation;
 import Calculators.Operations.UnitTypes.MassOperation;
@@ -56,6 +58,14 @@ public class UnitConverterWindow {
 	public void ClearUnitSelection() 
 	{
 		this.UnitSelectionBox.removeAllItems();
+	}
+	public void SelectType(TypeEnums t) 
+	{
+		TypeSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
+	}
+	public void SelectConversionType(TempEnums t) 
+	{
+		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
 	}
 	public void AddToUnitSelection(String s, Operation c) 
 	{
