@@ -1,6 +1,7 @@
 package Calculators.BasicCalculator;
 
 
+import Calculators.Operations.DefaultOperation;
 import Calculators.Operations.Operation;
 
 public class BasicCalculator 
@@ -10,6 +11,7 @@ public class BasicCalculator
 		//Test
 		this.FirstNumber = 0;
 		this.SecondNumber = 0;
+		this.op = new DefaultOperation(this);
 	}
 	public String GetAnswer() 
 	{
