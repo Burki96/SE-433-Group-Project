@@ -13,7 +13,7 @@ import Calculators.Operations.UnitTypes.MassOperation;
 import Calculators.Operations.UnitTypes.TemperatureOperation;
 import ComboBoxComponents.ConversionComponent;
 import ComboBoxListeners.ComboBoxSwitchListener;
-import Events.CalculatorButtonEvents.ConvertAction;
+import Events.ConverterButtonEvents.ConvertAction;
 
 import javax.swing.JButton;
 import java.awt.Color;
@@ -25,7 +25,7 @@ public class UnitConverterWindow {
 
 	private final static TemperatureOperation TempOp = new TemperatureOperation();
 	private final static MassOperation MassOp = new MassOperation();
-	private ComboBoxSwitchListener switchListener;
+	private final static ComboBoxSwitchListener switchListener = new ComboBoxSwitchListener();
 	private JFrame frame;
 	private JTextField InputField;
 	private JTextField OutputField;
@@ -33,11 +33,12 @@ public class UnitConverterWindow {
 	private JButton ConvertButton;
 	private JLabel InputLabel;
 	private JComboBox<ConversionComponent> TypeSelectionBox;
+	private JButton MainMenuButton;
 
 
 	public UnitConverterWindow() 
 	{
-		//initialize();
+		
 	}
 	public void PressConvert() 
 	{
@@ -73,7 +74,8 @@ public class UnitConverterWindow {
 	}
 	public void Shutdown() 
 	{
-		
+		ConvertButton = ButtonFactory.returnButton(this.ConvertButton);
+		MainMenuButton = ButtonFactory.returnButton(this.MainMenuButton);
 		if(frame != null) {
 			frame.setVisible(false);
 			frame = null;
@@ -84,7 +86,7 @@ public class UnitConverterWindow {
 	 * Initialize the contents of the frame.
 	 * @wbp.parser.entryPoint
 	 */
-	public void initialize() {
+	public void initialize(Boolean t) {
 		frame = new BaseFrame();
 		frame.setBounds(100, 100, 652, 430);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -129,9 +131,14 @@ public class UnitConverterWindow {
 		frame.getContentPane().add(TypeSelectionBox);
 		TypeSelectionBox.addItem(new ConversionComponent("Temperature", TempOp));
 		TypeSelectionBox.addItem(new ConversionComponent("Mass", MassOp));
-		switchListener = new ComboBoxSwitchListener(this.TypeSelectionBox);
+		switchListener.SetSelector(TypeSelectionBox);
+		
+		//MainMenuButton = new JButton("Main Menu");
+		MainMenuButton = ButtonFactory.GetButton("MainMenu",10, 11, 115, 41);
+		//MainMenuButton.setBounds(10, 11, 115, 41);
+		frame.getContentPane().add(MainMenuButton);
 		TypeSelectionBox.addActionListener(switchListener);
 		((ConversionComponent)this.TypeSelectionBox.getSelectedItem()).GetOperation().Execute();
-		frame.setVisible(true);
+		frame.setVisible(t);
 	}
 }

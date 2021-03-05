@@ -10,7 +10,7 @@ import ComboBoxComponents.ConversionComponent;
 public class ComboBoxSwitchListener implements ActionListener
 {
 	private JComboBox<ConversionComponent> TypeSelectionBox;
-	public ComboBoxSwitchListener(JComboBox<ConversionComponent> selection) 
+	public void SetSelector(JComboBox<ConversionComponent> selection) 
 	{
 		this.TypeSelectionBox = selection;
 	}

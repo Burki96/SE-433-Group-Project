@@ -3,6 +3,8 @@ package Controllers;
 
 import BasicConverter.BasicConverter;
 import Calculators.ButtonEnum;
+import Calculators.TempEnums;
+import Calculators.TypeEnums;
 import Calculators.Operations.Operation;
 import Calculators.Windows.UnitConverterWindow;
 
@@ -31,6 +33,14 @@ public class UnitConverterController
 		this.converterWindow = new UnitConverterWindow();
 		
 		//initialize();
+	}
+	public static void SelectType(TypeEnums t) 
+	{
+		GetInstance().converterWindow.SelectType(t);
+	}
+	public static void SelectConversion(TempEnums t) 
+	{
+		GetInstance().converterWindow.SelectConversionType(t);
 	}
 	public static BasicConverter GetConverter() 
 	{
@@ -61,7 +71,11 @@ public class UnitConverterController
 	//starts the calculator window
 	public static void Start() 
 	{
-		GetInstance().converterWindow.initialize();
+		GetInstance().converterWindow.initialize(true);
+	}
+	public static void StartJUNIT() 
+	{
+		GetInstance().converterWindow.initialize(false);
 	}
 	public static double GetAnswer()
 	{
