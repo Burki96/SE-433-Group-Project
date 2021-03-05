@@ -1,4 +1,4 @@
-package BasicConverter;
+package Calculators.BasicConverter;
 
 import Calculators.Operations.Operation;
 
@@ -39,7 +39,7 @@ public class BasicConverter
 	}
 	public void PassResult(double Result) 
 	{
-		this.Answer = String.format("%.2f", Result);
+		this.Answer = String.format("%.3f", Result);
 		this.Result = Result;
 		//this.textField.setText(this.anString);
 	}

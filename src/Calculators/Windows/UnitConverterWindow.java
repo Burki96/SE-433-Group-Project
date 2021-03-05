@@ -14,6 +14,7 @@ import Calculators.Operations.UnitTypes.TemperatureOperation;
 import ComboBoxComponents.ConversionComponent;
 import ComboBoxListeners.ComboBoxSwitchListener;
 import Events.ConverterButtonEvents.ConvertAction;
+import Events.ConverterButtonEvents.ConverterMainMenuSwitch;
 
 import javax.swing.JButton;
 import java.awt.Color;
@@ -26,6 +27,7 @@ public class UnitConverterWindow {
 	private final static TemperatureOperation TempOp = new TemperatureOperation();
 	private final static MassOperation MassOp = new MassOperation();
 	private final static ComboBoxSwitchListener switchListener = new ComboBoxSwitchListener();
+	private final static ConverterMainMenuSwitch MainMenuSwitch = new ConverterMainMenuSwitch();
 	private JFrame frame;
 	private JTextField InputField;
 	private JTextField OutputField;
@@ -133,9 +135,8 @@ public class UnitConverterWindow {
 		TypeSelectionBox.addItem(new ConversionComponent("Mass", MassOp));
 		switchListener.SetSelector(TypeSelectionBox);
 		
-		//MainMenuButton = new JButton("Main Menu");
 		MainMenuButton = ButtonFactory.GetButton("MainMenu",10, 11, 115, 41);
-		//MainMenuButton.setBounds(10, 11, 115, 41);
+		MainMenuButton.addActionListener(MainMenuSwitch);
 		frame.getContentPane().add(MainMenuButton);
 		TypeSelectionBox.addActionListener(switchListener);
 		((ConversionComponent)this.TypeSelectionBox.getSelectedItem()).GetOperation().Execute();

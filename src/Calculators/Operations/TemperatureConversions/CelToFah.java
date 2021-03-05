@@ -6,12 +6,13 @@ import Controllers.UnitConverterController;
 public class CelToFah extends Operation
 {
 	private final static double number1 = 32;
-	private final static double number2 = 9/5;
+	private final static double number2 = 9;
+	private final static double number3 = 5;
 	@Override
 	public void Execute() 
 	{
 		converter = UnitConverterController.GetConverter();
-		double n = (converter.GetFirstNumber() * number2) + number1;
+		double n = (converter.GetFirstNumber() * number2 / number3) + number1;
 		converter.PassResult(n);
 	}
 

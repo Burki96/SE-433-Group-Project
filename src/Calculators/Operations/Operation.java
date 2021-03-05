@@ -1,7 +1,7 @@
 package Calculators.Operations;
 
-import BasicConverter.BasicConverter;
 import Calculators.BasicCalculator.BasicCalculator;
+import Calculators.BasicConverter.BasicConverter;
 
 public abstract class Operation {
 	
