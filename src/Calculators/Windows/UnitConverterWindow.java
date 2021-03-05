@@ -6,9 +6,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import Calculators.Factories.ButtonFactory;
-import Calculators.Operations.GtoKGOperation;
-import Calculators.Operations.KGtoGOperation;
 import Calculators.Operations.Operation;
+import Calculators.Operations.UnitTypes.MassOperation;
+import Calculators.Operations.UnitTypes.TemperatureOperation;
 import ComboBoxComponents.ConversionComponent;
 import Events.CalculatorButtonEvents.ConvertAction;
 
@@ -20,14 +20,15 @@ import java.awt.Font;
 
 public class UnitConverterWindow {
 
-	private static KGtoGOperation KGtoG = new KGtoGOperation();
-	private static GtoKGOperation GtoKG = new GtoKGOperation();
+	private final static TemperatureOperation TempOp = new TemperatureOperation();
+	private final static MassOperation MassOp = new MassOperation();
 	private JFrame frame;
 	private JTextField InputField;
 	private JTextField OutputField;
-	private JComboBox<ConversionComponent> comboBox;
+	private JComboBox<ConversionComponent> UnitSelectionBox;
 	private JButton ConvertButton;
 	private JLabel InputLabel;
+	private JComboBox<ConversionComponent> TypeSelectionBox;
 
 
 	public UnitConverterWindow() 
@@ -48,7 +49,15 @@ public class UnitConverterWindow {
 	}
 	public Operation GetCurrentSelected() 
 	{
-		return ((ConversionComponent)this.comboBox.getSelectedItem()).GetOperation();
+		return ((ConversionComponent)this.UnitSelectionBox.getSelectedItem()).GetOperation();
+	}
+	public void ClearUnitSelection() 
+	{
+		this.UnitSelectionBox.removeAll();
+	}
+	public void AddToUnitSelection(String s, Operation c) 
+	{
+		UnitSelectionBox.addItem(new ConversionComponent(s, c));
 	}
 	public void Shutdown() 
 	{
@@ -88,12 +97,11 @@ public class UnitConverterWindow {
 		ConvertButton = ButtonFactory.GetButton("Convert",236, 170, 143, 57);
 		ConvertButton.addActionListener(new ConvertAction());
 		frame.getContentPane().add(ConvertButton);
-		comboBox = new JComboBox<ConversionComponent>();
-		comboBox.setBounds(236, 254, 143, 22);
-		frame.getContentPane().add(comboBox);
-		comboBox.addItem(new ConversionComponent("KG to G", KGtoG));
-		comboBox.addItem(new ConversionComponent("G to KG", GtoKG));
-		
+		UnitSelectionBox = new JComboBox<ConversionComponent>();
+		UnitSelectionBox.setBounds(236, 289, 143, 22);
+		frame.getContentPane().add(UnitSelectionBox);
+
+
 		InputLabel = new JLabel("Input");
 		InputLabel.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		InputLabel.setBounds(118, 92, 56, 67);
@@ -103,6 +111,13 @@ public class UnitConverterWindow {
 		OutputLabel.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		OutputLabel.setBounds(430, 92, 71, 67);
 		frame.getContentPane().add(OutputLabel);
+		
+		TypeSelectionBox = new JComboBox<ConversionComponent>();
+		TypeSelectionBox.setBounds(236, 102, 143, 22);
+		frame.getContentPane().add(TypeSelectionBox);
+		TypeSelectionBox.addItem(new ConversionComponent("Temperature", TempOp));
+		TypeSelectionBox.addItem(new ConversionComponent("Mass", MassOp));
+		((ConversionComponent)this.TypeSelectionBox.getSelectedItem()).GetOperation().Execute();
 		frame.setVisible(true);
 	}
 }

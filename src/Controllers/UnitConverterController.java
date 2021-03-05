@@ -19,6 +19,10 @@ public class UnitConverterController
 		}
 		return instance;
 	}
+	public static UnitConverterWindow GetWindow() 
+	{
+		return GetInstance().converterWindow;
+	}
 	private UnitConverterController() 
 	{
 		
