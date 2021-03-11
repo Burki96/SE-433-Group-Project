@@ -1,6 +1,8 @@
 package Calculators.BasicCalculator;
 
 
+import java.text.DecimalFormat;
+
 import Calculators.Operations.DefaultOperation;
 import Calculators.Operations.Operation;
 
@@ -51,7 +53,13 @@ public class BasicCalculator
 	}
 	public void PassResult(double Result) 
 	{
-		this.Answer = String.format("%.g", Result);
+		if ((Result == Math.floor(Result)) && !Double.isInfinite(Result)) {
+			this.Answer = String.format("%d", (int)Result);
+		}else 
+		{
+		DecimalFormat df = new DecimalFormat("0.#");
+		this.Answer = df.format(Result);
+		}
 		this.Result = Result;
 		//this.textField.setText(this.anString);
 	}
