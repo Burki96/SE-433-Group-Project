@@ -51,7 +51,7 @@ public class BasicCalculator
 	}
 	public void PassResult(double Result) 
 	{
-		this.Answer = String.format("%.2f", Result);
+		this.Answer = String.format("%.g", Result);
 		this.Result = Result;
 		//this.textField.setText(this.anString);
 	}

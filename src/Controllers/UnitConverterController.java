@@ -4,6 +4,7 @@ package Controllers;
 import Calculators.ButtonEnum;
 import Calculators.MassEnums;
 import Calculators.TempEnums;
+import Calculators.TimeEnums;
 import Calculators.TypeEnums;
 import Calculators.BasicConverter.BasicConverter;
 import Calculators.Operations.Operation;
@@ -44,6 +45,10 @@ public class UnitConverterController
 		GetInstance().converterWindow.SelectConversionType(t);
 	}
 	public static void SelectConversion(MassEnums t) 
+	{
+		GetInstance().converterWindow.SelectConversionType(t);
+	}
+	public static void SelectConversion(TimeEnums t) 
 	{
 		GetInstance().converterWindow.SelectConversionType(t);
 	}
