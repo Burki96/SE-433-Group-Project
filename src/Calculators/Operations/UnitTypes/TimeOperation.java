@@ -1,8 +1,8 @@
 package Calculators.Operations.UnitTypes;
 
 import Calculators.Operations.Operation;
-import Calculators.Operations.Time.DivisionConversion;
-import Calculators.Operations.Time.MultiplyConversion;
+import Calculators.Operations.BasicConversionOperations.DivisionConversion;
+import Calculators.Operations.BasicConversionOperations.MultiplyConversion;
 import Calculators.Windows.UnitConverterWindow;
 import Controllers.UnitConverterController;
 

@@ -1,35 +1,25 @@
 package Calculators.Operations.UnitTypes;
 
 import Calculators.Operations.Operation;
-import Calculators.Operations.MassOperations.GToKG;
-import Calculators.Operations.MassOperations.GToOunce;
-import Calculators.Operations.MassOperations.GToPound;
-import Calculators.Operations.MassOperations.KGToG;
-import Calculators.Operations.MassOperations.KGToOunce;
-import Calculators.Operations.MassOperations.KGtoPound;
-import Calculators.Operations.MassOperations.OunceToG;
-import Calculators.Operations.MassOperations.OunceToKG;
-import Calculators.Operations.MassOperations.OunceToPound;
-import Calculators.Operations.MassOperations.PoundToGram;
-import Calculators.Operations.MassOperations.PoundToKG;
-import Calculators.Operations.MassOperations.PoundToOunce;
+import Calculators.Operations.BasicConversionOperations.DivisionConversion;
+import Calculators.Operations.BasicConversionOperations.MultiplyConversion;
 import Calculators.Windows.UnitConverterWindow;
 import Controllers.UnitConverterController;
 
 public class MassOperation extends Operation
 {
-	private final static KGToG KGtoG = new KGToG();
-	private final static KGToOunce KGtoOunce = new KGToOunce();
-	private final static KGtoPound KGtoPound = new KGtoPound();
-	private final static GToKG GtoKG = new GToKG();
-	private final static GToOunce GtoOunce = new GToOunce();
-	private final static GToPound GtoPound = new GToPound();
-	private final static PoundToGram PToG = new PoundToGram();
-	private final static PoundToKG PToKG = new PoundToKG();
-	private final static PoundToOunce PToOunce = new PoundToOunce();
-	private final static OunceToG OuncetoG = new OunceToG();
-	private final static OunceToKG OuncetoKG = new OunceToKG();
-	private final static OunceToPound OuncetoPound = new OunceToPound();
+	private final static MultiplyConversion KGtoG = new MultiplyConversion(1000);
+	private final static MultiplyConversion KGtoOunce = new MultiplyConversion(35.274);
+	private final static MultiplyConversion KGtoPound = new MultiplyConversion(2.205);
+	private final static DivisionConversion GtoKG = new DivisionConversion(1000);
+	private final static DivisionConversion GtoOunce = new DivisionConversion(28.35);
+	private final static DivisionConversion GtoPound = new DivisionConversion(454);
+	private final static MultiplyConversion PToG = new MultiplyConversion(454);
+	private final static DivisionConversion PToKG = new DivisionConversion(2.205);
+	private final static MultiplyConversion PToOunce = new MultiplyConversion(16);
+	private final static MultiplyConversion OuncetoG = new MultiplyConversion(28.35);
+	private final static DivisionConversion OuncetoKG = new DivisionConversion(35.274);
+	private final static DivisionConversion OuncetoPound = new DivisionConversion(16);
 	@Override
 	public void Execute() 
 	{

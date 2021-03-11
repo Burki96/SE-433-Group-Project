@@ -1,11 +1,15 @@
-package Calculators.Operations.MassOperations;
+package Calculators.Operations.BasicConversionOperations;
 
 import Calculators.Operations.Operation;
 import Controllers.UnitConverterController;
 
-public class PoundToKG extends Operation
+public class DivisionConversion extends Operation
 {
-	private final static double number = 2.205;
+	private double number;
+	public DivisionConversion(double number) 
+	{
+		this.number = number;
+	}
 	@Override
 	public void Execute() 
 	{
@@ -13,4 +17,6 @@ public class PoundToKG extends Operation
 		double n = converter.GetFirstNumber() / number;
 		converter.PassResult(n);
 	}
+
+
 }
