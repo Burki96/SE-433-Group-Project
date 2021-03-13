@@ -39,7 +39,7 @@ public class BasicConverter
 	}
 	public void PassResult(double Result) 
 	{
-		this.Answer = String.format("%.3f", Result);
+		this.Answer = String.format("%g", Result);
 		this.Result = Result;
 		//this.textField.setText(this.anString);
 	}

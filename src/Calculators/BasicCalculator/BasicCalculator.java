@@ -1,6 +1,8 @@
 package Calculators.BasicCalculator;
 
 
+import java.text.DecimalFormat;
+
 import Calculators.Operations.DefaultOperation;
 import Calculators.Operations.Operation;
 
@@ -51,7 +53,9 @@ public class BasicCalculator
 	}
 	public void PassResult(double Result) 
 	{
-		this.Answer = String.format("%.2f", Result);
+		DecimalFormat df = new DecimalFormat("###.###########");
+		this.Answer = df.format(Result);
+		
 		this.Result = Result;
 		//this.textField.setText(this.anString);
 	}

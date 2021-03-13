@@ -1,11 +1,15 @@
-package Calculators.Operations.MassOperations;
+package Calculators.Operations.BasicConversionOperations;
 
 import Calculators.Operations.Operation;
 import Controllers.UnitConverterController;
 
-public class PoundToGram extends Operation
+public class MultiplyConversion extends Operation
 {
-	private final static double number = 454;
+	private double number;
+	public MultiplyConversion(double number) 
+	{
+		this.number = number;
+	}
 	@Override
 	public void Execute() 
 	{
@@ -13,4 +17,5 @@ public class PoundToGram extends Operation
 		double n = converter.GetFirstNumber() * number;
 		converter.PassResult(n);
 	}
+
 }

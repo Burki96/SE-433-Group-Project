@@ -5,13 +5,15 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import Calculators.MassEnums;
-import Calculators.TempEnums;
-import Calculators.TypeEnums;
+import Calculators.Enums.MassEnums;
+import Calculators.Enums.TempEnums;
+import Calculators.Enums.TimeEnums;
+import Calculators.Enums.TypeEnums;
 import Calculators.Factories.ButtonFactory;
 import Calculators.Operations.Operation;
 import Calculators.Operations.UnitTypes.MassOperation;
 import Calculators.Operations.UnitTypes.TemperatureOperation;
+import Calculators.Operations.UnitTypes.TimeOperation;
 import ComboBoxComponents.ConversionComponent;
 import ComboBoxListeners.ComboBoxSwitchListener;
 import Events.ConverterButtonEvents.ConvertAction;
@@ -27,6 +29,7 @@ public class UnitConverterWindow {
 
 	private final static TemperatureOperation TempOp = new TemperatureOperation();
 	private final static MassOperation MassOp = new MassOperation();
+	private final static TimeOperation TimeOp = new TimeOperation();
 	private final static ComboBoxSwitchListener switchListener = new ComboBoxSwitchListener();
 	private final static ConverterMainMenuSwitch MainMenuSwitch = new ConverterMainMenuSwitch();
 	private JFrame frame;
@@ -68,6 +71,10 @@ public class UnitConverterWindow {
 		TypeSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
 	}
 	public void SelectConversionType(TempEnums t) 
+	{
+		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
+	}
+	public void SelectConversionType(TimeEnums t) 
 	{
 		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
 	}
@@ -138,6 +145,7 @@ public class UnitConverterWindow {
 		frame.getContentPane().add(TypeSelectionBox);
 		TypeSelectionBox.addItem(new ConversionComponent("Temperature", TempOp));
 		TypeSelectionBox.addItem(new ConversionComponent("Mass", MassOp));
+		TypeSelectionBox.addItem(new ConversionComponent("Time", TimeOp));
 		switchListener.SetSelector(TypeSelectionBox);
 		
 		MainMenuButton = ButtonFactory.GetButton("MainMenu",10, 11, 115, 41);
