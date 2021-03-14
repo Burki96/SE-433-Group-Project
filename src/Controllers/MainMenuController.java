@@ -36,7 +36,8 @@ public class MainMenuController {
 	{
 		instance = null;
 	}
-	public static void Turnoff() {
+	public static void Turnoff() 
+	{
 		GetInstance().privTurnoff();
 	}
 

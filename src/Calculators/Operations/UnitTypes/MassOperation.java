@@ -12,12 +12,12 @@ public class MassOperation extends Operation
 	private final static MultiplyConversion KGtoOunce = new MultiplyConversion(35.274);
 	private final static MultiplyConversion KGtoPound = new MultiplyConversion(2.205);
 	private final static DivisionConversion GtoKG = new DivisionConversion(1000);
-	private final static DivisionConversion GtoOunce = new DivisionConversion(28.35);
+	private final static DivisionConversion GtoOunce = new DivisionConversion(28.3495);
 	private final static DivisionConversion GtoPound = new DivisionConversion(454);
 	private final static MultiplyConversion PToG = new MultiplyConversion(454);
 	private final static DivisionConversion PToKG = new DivisionConversion(2.205);
 	private final static MultiplyConversion PToOunce = new MultiplyConversion(16);
-	private final static MultiplyConversion OuncetoG = new MultiplyConversion(28.35);
+	private final static MultiplyConversion OuncetoG = new MultiplyConversion(28.3495);
 	private final static DivisionConversion OuncetoKG = new DivisionConversion(35.274);
 	private final static DivisionConversion OuncetoPound = new DivisionConversion(16);
 	@Override

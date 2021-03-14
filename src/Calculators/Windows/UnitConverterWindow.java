@@ -58,6 +58,10 @@ public class UnitConverterWindow {
 	{
 		this.OutputField.setText(a);
 	}
+	public void SetInput(String a)
+	{
+		this.InputField.setText(a);
+	}
 	public Operation GetCurrentSelected() 
 	{
 		return ((ConversionComponent)this.UnitSelectionBox.getSelectedItem()).GetOperation();
@@ -69,18 +73,22 @@ public class UnitConverterWindow {
 	public void SelectType(TypeEnums t) 
 	{
 		TypeSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
+		TypeSelectionBox.setSelectedIndex(t.ordinal());
 	}
 	public void SelectConversionType(TempEnums t) 
 	{
 		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
+		UnitSelectionBox.setSelectedIndex(t.ordinal());
 	}
 	public void SelectConversionType(TimeEnums t) 
 	{
 		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
+		UnitSelectionBox.setSelectedIndex(t.ordinal());
 	}
 	public void SelectConversionType(MassEnums t) 
 	{
 		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
+		UnitSelectionBox.setSelectedIndex(t.ordinal());
 	}
 	public void AddToUnitSelection(String s, Operation c) 
 	{

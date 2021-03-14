@@ -73,9 +73,9 @@ public class UnitConverterController
 		return GetInstance().converterWindow.GetText();
 	}
 	//Sets the textbox on the calculator window, for interal use only, not for JUNIT
-	public static void SetText(String s)
+	public static void SetInput(String s)
 	{
-		//GetInstance().converterWindow.SetText(s);
+		GetInstance().converterWindow.SetInput(s);
 	}
 
 	//starts the calculator window
@@ -91,7 +91,7 @@ public class UnitConverterController
 	{
 		return GetInstance().converter.GetResultNumber();
 	}
-	public static void PressConvert(ButtonEnum c)
+	public static void PressConvert()
 	{
 		GetInstance().converterWindow.PressConvert();
 	}

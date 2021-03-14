@@ -1,5 +1,7 @@
 package Calculators.BasicConverter;
 
+import java.text.DecimalFormat;
+
 import Calculators.Operations.Operation;
 
 public class BasicConverter 
@@ -39,8 +41,10 @@ public class BasicConverter
 	}
 	public void PassResult(double Result) 
 	{
-		this.Answer = String.format("%g", Result);
-		this.Result = Result;
+		DecimalFormat df = new DecimalFormat("###.###########");
+		this.Answer = df.format(Result);
+		
+		this.Result = Double.parseDouble(Answer);
 		//this.textField.setText(this.anString);
 	}
 	private double FirstNumber;
