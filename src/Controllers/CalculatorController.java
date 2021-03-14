@@ -93,14 +93,15 @@ public class CalculatorController {
 		double SecondNumber = Double.parseDouble(calculatorWindow.GetText());
 		cal.SetSecondNumber(SecondNumber);
 		this.cal.Execute();
-	
+		this.calculatorWindow.SetText(this.cal.GetAnswer());
 		
 	}
 	private void privDoArthimeticAction(Operation c) 
 	{
 		double first = Double.parseDouble(calculatorWindow.GetText());
 		cal.SetFirstNumber(first);
-		this.calculatorWindow.SetText(String.valueOf(first));
+		cal.SetSecondNumber(first);
+		this.calculatorWindow.SetText("0");
 		this.cal.SetOperation(c);
 	}
 
