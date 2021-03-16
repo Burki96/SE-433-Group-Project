@@ -1,4 +1,4 @@
-package test;
+package test.calc;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -88,8 +88,10 @@ class DivideTests
 		CalculatorController.PressButton(ButtonEnum.Zero);
 		CalculatorController.PressButton(ButtonEnum.Equals);
 		Double answer4 = CalculatorController.GetAnswer();
+
 		System.out.println(answer4);
 		assertEquals(answer4, Double.POSITIVE_INFINITY); 
+
 		CalculatorController.Turnoff();
 	}
 	//0 / 25

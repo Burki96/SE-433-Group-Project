@@ -1,4 +1,4 @@
-package test;
+package test.calc;
 
 import Calculators.ButtonEnum;
 import Calculators.Enums.MassEnums;
