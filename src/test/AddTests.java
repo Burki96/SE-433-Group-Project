@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Test;
 
 class AddTests 
 {
+	/* FR001 The user should be able to perform the addition operation. The system should show the 
+	 * results of the addition. */
 	//	5.5 + 9.5 
 	@Test
 	void test1() 
@@ -31,7 +33,6 @@ class AddTests
 		Double answer1 = CalculatorController.GetAnswer();
 		assertEquals(answer1, 15.0);
 		CalculatorController.Turnoff();
-		//fail("Not yet implemented");
 	}
 	//6 - 4	
 	@Test

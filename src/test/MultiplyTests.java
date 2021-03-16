@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Test;
 
 class MultiplyTests 
 {
+	/* FR003 The user should be able to perform the multiplication operation. The system 
+	 * should show the results of the multiplication operation. */
 	//7 * 8	
 	@Test
 	void test1() 
@@ -44,7 +46,8 @@ class MultiplyTests
 		assertEquals(answer2, -76.5);
 		CalculatorController.Turnoff();
 	}
-	//-9.9 * -9.9	
+	// FR021. The calculator should show a precision of at least 2 decimals.
+	// -9.9 * -9.9	
 	@Test
 	void test3()
 	{

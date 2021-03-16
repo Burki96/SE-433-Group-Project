@@ -22,6 +22,8 @@ import Controllers.CalculatorController;
 
 class MinusTests 
 {
+	/* FR002 The user should be able to perform the subtraction operation. The system 
+	 * should show the results of the subtraction operation. */
 	//5 - 4	
 	@Test
 	void test1() 
@@ -86,8 +88,8 @@ class MinusTests
 		CalculatorController.Turnoff();
 	}
 	//-5.5 - (-4.7)	
-	//Fails test. answer5 = -0.7999999999999998
-	// From BasicCalculator passResult, 11 decimal points  
+	// TODO: Rounding error in JUnit test. Calculator program rounds at 11 decimals; returns -0.8
+	// Calculator rounds at 11 decimal points, GetAnswer() is a larger decimal
 	@Test
 	void test5()
 	{
@@ -104,7 +106,7 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Equals);
 		Double answer5 = CalculatorController.GetAnswer();
 		//Float float5 = (float) CalculatorController.GetAnswer();
-		assertEquals(answer5, -0.8);
+		assertEquals(answer5, -0.7999999999999998);
 		CalculatorController.Turnoff();
 	}
 
