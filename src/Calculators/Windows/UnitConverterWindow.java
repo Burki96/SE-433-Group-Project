@@ -5,15 +5,23 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Calculators.Enums.AreaEnum;
+import Calculators.Enums.DigitalStorageEnum;
+import Calculators.Enums.LengthEnums;
 import Calculators.Enums.MassEnums;
 import Calculators.Enums.TempEnums;
 import Calculators.Enums.TimeEnums;
 import Calculators.Enums.TypeEnums;
+import Calculators.Enums.VolumeEnum;
 import Calculators.Factories.ButtonFactory;
 import Calculators.Operations.Operation;
+import Calculators.Operations.UnitTypes.AreaOperation;
+import Calculators.Operations.UnitTypes.DigitalStorageOperation;
+import Calculators.Operations.UnitTypes.LengthOperation;
 import Calculators.Operations.UnitTypes.MassOperation;
 import Calculators.Operations.UnitTypes.TemperatureOperation;
 import Calculators.Operations.UnitTypes.TimeOperation;
+import Calculators.Operations.UnitTypes.VolumeOperation;
 import ComboBoxComponents.ConversionComponent;
 import ComboBoxListeners.ComboBoxSwitchListener;
 import Events.ConverterButtonEvents.ConvertAction;
@@ -27,9 +35,13 @@ import java.awt.Font;
 
 public class UnitConverterWindow {
 
-	private final static TemperatureOperation TempOp = new TemperatureOperation();
+	private final static AreaOperation AreaOp = new AreaOperation();
+	private final static DigitalStorageOperation DGOp = new DigitalStorageOperation();
+	private final static LengthOperation LengthOp = new LengthOperation();
 	private final static MassOperation MassOp = new MassOperation();
+	private final static TemperatureOperation TempOp = new TemperatureOperation();
 	private final static TimeOperation TimeOp = new TimeOperation();
+	private final static VolumeOperation VolumeOp = new VolumeOperation();
 	private final static ComboBoxSwitchListener switchListener = new ComboBoxSwitchListener();
 	private final static ConverterMainMenuSwitch MainMenuSwitch = new ConverterMainMenuSwitch();
 	private JFrame frame;
@@ -85,6 +97,29 @@ public class UnitConverterWindow {
 		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
 		UnitSelectionBox.setSelectedIndex(t.ordinal());
 	}
+	public void SelectConversionType(LengthEnums t) 
+	{
+		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
+		UnitSelectionBox.setSelectedIndex(t.ordinal());
+	}
+	
+	public void SelectConversionType(DigitalStorageEnum t) 
+	{
+		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
+		UnitSelectionBox.setSelectedIndex(t.ordinal());
+	}
+	public void SelectConversionType(AreaEnum t) 
+	{
+		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
+		UnitSelectionBox.setSelectedIndex(t.ordinal());
+	}
+	public void SelectConversionType(VolumeEnum t) 
+	{
+		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
+		UnitSelectionBox.setSelectedIndex(t.ordinal());
+	}
+	
+	
 	public void SelectConversionType(MassEnums t) 
 	{
 		UnitSelectionBox.getItemAt(t.ordinal()).GetOperation().Execute();
@@ -151,9 +186,13 @@ public class UnitConverterWindow {
 		TypeSelectionBox = new JComboBox<ConversionComponent>();
 		TypeSelectionBox.setBounds(236, 102, 143, 22);
 		frame.getContentPane().add(TypeSelectionBox);
-		TypeSelectionBox.addItem(new ConversionComponent("Temperature", TempOp));
+		TypeSelectionBox.addItem(new ConversionComponent("Area", AreaOp));
+		TypeSelectionBox.addItem(new ConversionComponent("Digital Storage", DGOp));
+		TypeSelectionBox.addItem(new ConversionComponent("Length", LengthOp));
 		TypeSelectionBox.addItem(new ConversionComponent("Mass", MassOp));
+		TypeSelectionBox.addItem(new ConversionComponent("Temperature", TempOp));
 		TypeSelectionBox.addItem(new ConversionComponent("Time", TimeOp));
+		TypeSelectionBox.addItem(new ConversionComponent("Volume", VolumeOp));
 		switchListener.SetSelector(TypeSelectionBox);
 		
 		MainMenuButton = ButtonFactory.GetButton("MainMenu",10, 11, 115, 41);

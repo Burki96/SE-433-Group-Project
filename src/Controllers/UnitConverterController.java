@@ -3,10 +3,14 @@ package Controllers;
 
 import Calculators.ButtonEnum;
 import Calculators.BasicConverter.BasicConverter;
+import Calculators.Enums.AreaEnum;
+import Calculators.Enums.DigitalStorageEnum;
+import Calculators.Enums.LengthEnums;
 import Calculators.Enums.MassEnums;
 import Calculators.Enums.TempEnums;
 import Calculators.Enums.TimeEnums;
 import Calculators.Enums.TypeEnums;
+import Calculators.Enums.VolumeEnum;
 import Calculators.Operations.Operation;
 import Calculators.Windows.UnitConverterWindow;
 
@@ -51,6 +55,22 @@ public class UnitConverterController
 	public static void SelectConversion(TimeEnums t) 
 	{
 		GetInstance().converterWindow.SelectConversionType(t);
+	}
+	public static void SelectConversion(LengthEnums l) 
+	{
+		GetInstance().converterWindow.SelectConversionType(l);
+	}
+	public static void SelectConversion(DigitalStorageEnum ds) 
+	{
+		GetInstance().converterWindow.SelectConversionType(ds);
+	}
+	public static void SelectConversion(AreaEnum a) 
+	{
+		GetInstance().converterWindow.SelectConversionType(a);
+	}
+	public static void SelectConversion(VolumeEnum v) 
+	{
+		GetInstance().converterWindow.SelectConversionType(v);
 	}
 	public static BasicConverter GetConverter() 
 	{
