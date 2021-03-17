@@ -17,7 +17,9 @@ class AddTests
 {
 	/* FR001 The user should be able to perform the addition operation. The system should show the 
 	 * results of the addition. */
+	
 	//	5.5 + 9.5 
+	// positive + positive; decimal + decimal (carry over decimal)
 	@Test
 	void test1() 
 	{
@@ -30,24 +32,27 @@ class AddTests
 		CalculatorController.PressButton(ButtonEnum.Period);
 		CalculatorController.PressButton(ButtonEnum.Five);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer1 = CalculatorController.GetAnswer();
-		assertEquals(answer1, 15.0);
+		String answer1 = CalculatorController.GetText();
+		assertEquals(answer1, "15");
 		CalculatorController.Turnoff();
 	}
-	//6 - 4	
+	// 6 + (-4)	
+	// positive + negative (answer: positive); non-decimal + non-decimal
 	@Test
 	void test2() 
 	{
 		CalculatorController.StartJUNIT();
 		CalculatorController.PressButton(ButtonEnum.Six);
-		CalculatorController.PressButton(ButtonEnum.Minus);
+		CalculatorController.PressButton(ButtonEnum.Plus);
 		CalculatorController.PressButton(ButtonEnum.Four);
+		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer2 = CalculatorController.GetAnswer();
-		assertEquals(answer2, 2);
+		String answer2 = CalculatorController.GetText();
+		assertEquals(answer2, "2");
 		CalculatorController.Turnoff();
 	}
-	//1.2 + -3.4
+	// 1.2 + -3.4
+	// positive + negative (answer: negative); positive decimal + negative decimal (“borrow” digit across decimal)
 	@Test
 	void test3()
 	{
@@ -61,11 +66,12 @@ class AddTests
 		CalculatorController.PressButton(ButtonEnum.Four);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer3 = CalculatorController.GetAnswer();
-		assertEquals(answer3, -2.2);
+		String answer3 = CalculatorController.GetText();
+		assertEquals(answer3, "-2.2");
 		CalculatorController.Turnoff();
 	}
-	//-0.7 + -8	
+	// -0.7 + -8	
+	// negative + negative; non-decimal + decimal OR decimal + non-decimal; decimal + decimal (don’t carry decimal)
 	@Test
 	void test4()
 	{
@@ -78,8 +84,8 @@ class AddTests
 		CalculatorController.PressButton(ButtonEnum.Eight);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer4 = CalculatorController.GetAnswer();
-		assertEquals(answer4, -8.7);
+		String answer4 = CalculatorController.GetText();
+		assertEquals(answer4, "-8.7");
 		CalculatorController.Turnoff();
 	}
 	

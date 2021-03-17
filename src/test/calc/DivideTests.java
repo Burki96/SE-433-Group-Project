@@ -14,7 +14,9 @@ class DivideTests
 {
 	/* FR004 The user should be able to perform the division operation. The system should 
 	 * show the results of the division operation. */
-	//10 / 2	
+	
+	// 10 / 2	
+	// positive / positive; non-decimal / non-decimal 
 	@Test
 	void test1() 
 	{
@@ -24,13 +26,12 @@ class DivideTests
 		CalculatorController.PressButton(ButtonEnum.Division);
 		CalculatorController.PressButton(ButtonEnum.Two);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer1 = CalculatorController.GetAnswer();
-		assertEquals(answer1, 5);
+		String answer1 = CalculatorController.GetText();
+		assertEquals(answer1, "5");
 		CalculatorController.Turnoff();
 	}
-	//100/ -5.2	
-	// TODO: Rounding error in JUnit test. Calculator program returns -19.23076923077
-	// Calculator rounds at 11 decimal points, GetAnswer() is a larger decimal
+	// 100 / -5.2	
+	// positive / negative; decimal / non-decimal OR non-decimal / decimal
 	@Test
 	void test2()
 	{
@@ -44,16 +45,15 @@ class DivideTests
 		CalculatorController.PressButton(ButtonEnum.Two);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer2 = CalculatorController.GetAnswer();
+		String answer2 = CalculatorController.GetText();
 		//DecimalFormat df = new DecimalFormat("###.###########");
 	    //df.format(answer2);
-		System.out.println(answer2);
-		assertEquals(answer2, -19.23076923076923);
+		//System.out.println(answer2);
+		assertEquals(answer2, "-19.23076923077");
 		CalculatorController.Turnoff();
 	}
-	//-80.5 / -20.2	
-	// TODO:  Rounding error in JUnit test. Calculator program returns  3.98514851485
-	// Calculator rounds at 11 decimal points, GetAnswer() is a larger decimal
+	// -80.5 / -20.2	
+	// negative / negative ; decimal / decimal
 	@Test
 	void test3()
 	{
@@ -70,16 +70,17 @@ class DivideTests
 		CalculatorController.PressButton(ButtonEnum.Two);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer3 = CalculatorController.GetAnswer();
-		assertEquals(answer3, 3.985148514851485);
+		String answer3 = CalculatorController.GetText();
+		assertEquals(answer3, "3.98514851485");
 		CalculatorController.Turnoff();
 	}
-	//25 / 0	
 	/* FR016 The user should be able to get appropriate ERROR messages when the entered data warrants it. 
 	 * Ex. division by zero.*/
+	// 25 / 0
+	// number / zero
 	// TODO: Dividing by zero returns infinity, it should be returning an ERROR
 	@Test
-	void test4()
+	void divideByZeroTest()
 	{
 		CalculatorController.StartJUNIT();
 		CalculatorController.PressButton(ButtonEnum.Two);
@@ -88,15 +89,14 @@ class DivideTests
 		CalculatorController.PressButton(ButtonEnum.Zero);
 		CalculatorController.PressButton(ButtonEnum.Equals);
 		Double answer4 = CalculatorController.GetAnswer();
-
-		System.out.println(answer4);
+		//System.out.println(answer4);
 		assertEquals(answer4, Double.POSITIVE_INFINITY); 
-
 		CalculatorController.Turnoff();
 	}
-	//0 / 25
+	// 0 / 25
+	// zero / number
 	@Test
-	void test5()
+	void zeroDividedByNumberTest()
 	{
 		CalculatorController.StartJUNIT();
 		CalculatorController.PressButton(ButtonEnum.Zero);
@@ -104,8 +104,8 @@ class DivideTests
 		CalculatorController.PressButton(ButtonEnum.Two);
 		CalculatorController.PressButton(ButtonEnum.Five);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer5 = CalculatorController.GetAnswer();
-		assertEquals(answer5, 0);
+		String answer5 = CalculatorController.GetText();
+		assertEquals(answer5, "0");
 		CalculatorController.Turnoff();
 	}
 }

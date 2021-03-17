@@ -24,7 +24,9 @@ class MinusTests
 {
 	/* FR002 The user should be able to perform the subtraction operation. The system 
 	 * should show the results of the subtraction operation. */
-	//5 - 4	
+	
+	// 5 - 4	
+	// positive - positive (answer: positive); non-decimal - non-decimal
 	@Test
 	void test1() 
 	{
@@ -33,11 +35,12 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Minus);
 		CalculatorController.PressButton(ButtonEnum.Four);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer1 = CalculatorController.GetAnswer();
-		assertEquals(answer1, 1);
+		String answer1 = CalculatorController.GetText();
+		assertEquals(answer1, "1");
 		CalculatorController.Turnoff();
 	}
-	//5.5 - 6	
+	// 5.5 - 6	
+	// positive - positive (answer: negative); non-decimal - decimal OR decimal - non-decimal
 	@Test
 	void test2()
 	{
@@ -48,11 +51,12 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Minus);
 		CalculatorController.PressButton(ButtonEnum.Six);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer2 = CalculatorController.GetAnswer();
-		assertEquals(answer2, -0.5);
+		String answer2 = CalculatorController.GetText();
+		assertEquals(answer2, "-0.5");
 		CalculatorController.Turnoff();
 	}
-	//7.5 - (-6.5) 
+	// 7.5 - (-6.5) 
+	// positive - negative; decimal - decimal (carry over decimal)
 	@Test
 	void test3()
 	{
@@ -66,11 +70,12 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Five);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer3 = CalculatorController.GetAnswer();
-		assertEquals(answer3, 14);
+		String answer3 = CalculatorController.GetText();
+		assertEquals(answer3, "14");
 		CalculatorController.Turnoff();
 	}
-	//-1 - (-5.8)	
+	// -1 - (-5.8)	
+	// negative - negative (answer: positive); decimal - decimal (don't carry over decimal)
 	@Test
 	void test4()
 	{
@@ -83,13 +88,12 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Eight);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer4 = CalculatorController.GetAnswer();
-		assertEquals(answer4, 4.8);
+		String answer4 = CalculatorController.GetText();
+		assertEquals(answer4, "4.8");
 		CalculatorController.Turnoff();
 	}
-	//-5.5 - (-4.7)	
-	// TODO: Rounding error in JUnit test. Calculator program rounds at 11 decimals; returns -0.8
-	// Calculator rounds at 11 decimal points, GetAnswer() is a larger decimal
+	// -5.5 - (-4.7)	
+	// negative - negative (answer: negative); negative decimal - negative decimal (“borrow” digit across decimal)
 	@Test
 	void test5()
 	{
@@ -104,9 +108,8 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Seven);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer5 = CalculatorController.GetAnswer();
-		//Float float5 = (float) CalculatorController.GetAnswer();
-		assertEquals(answer5, -0.7999999999999998);
+		String answer5 = CalculatorController.GetText();
+		assertEquals(answer5, "-0.8");
 		CalculatorController.Turnoff();
 	}
 
