@@ -6,12 +6,16 @@ import Controllers.UnitConverterController;
 public class GeneralConversion extends Operation
 {
 	private double factor;
-	private double offset;
+	private double offset = 0.0;
 	
 	public GeneralConversion(double factor, double offset) 
 	{
 		this.factor = factor;
 		this.offset = offset;
+	}
+	public GeneralConversion(double factor) 
+	{
+		this.factor = factor;
 	}
 	@Override
 	public void Execute() 
