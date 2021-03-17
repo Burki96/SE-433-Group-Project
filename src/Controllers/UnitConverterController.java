@@ -1,7 +1,6 @@
 package Controllers;
 
 
-import Calculators.ButtonEnum;
 import Calculators.BasicConverter.BasicConverter;
 import Calculators.Enums.AreaEnum;
 import Calculators.Enums.DigitalStorageEnum;

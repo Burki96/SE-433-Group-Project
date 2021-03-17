@@ -7,28 +7,30 @@ import Controllers.UnitConverterController;
 
 public class VolumeOperation extends Operation
 {
-	private final static GeneralConversion USTablespoonToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USQuartToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USPintToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USCupToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USFluidOunceToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion LiterToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion MilliliterToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion CubicMeterToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion CubicFootToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion CubicInchToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USTeaspoonToUSGallon = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USTablespoonToUSQuart = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USGallonToUSQuart = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USPintToUSQuart = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USCupToUSQuart = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USFluidOunceToUSQuart = new GeneralConversion( 1, 0);
-	private final static GeneralConversion LiterToUSQuart = new GeneralConversion( 1, 0);
-	private final static GeneralConversion MilliliterToUSQuart = new GeneralConversion( 1, 0);
-	private final static GeneralConversion CubicMeterToUSQuart = new GeneralConversion( 1, 0);
-	private final static GeneralConversion CubicFootToUSQuart = new GeneralConversion( 1, 0);
-	private final static GeneralConversion CubicInchToUSQuart = new GeneralConversion( 1, 0);
-	private final static GeneralConversion USTeaspoonToUSQuart = new GeneralConversion( 1, 0);
+	private final static GeneralConversion USTablespoonToUSGallon = new GeneralConversion( 1.0/256, 0);
+	private final static GeneralConversion USQuartToUSGallon = new GeneralConversion( 0.25, 0);
+	private final static GeneralConversion USPintToUSGallon = new GeneralConversion( 0.125, 0);
+	private final static GeneralConversion USCupToUSGallon = new GeneralConversion( 1/15.773, 0);
+	private final static GeneralConversion USFluidOunceToUSGallon = new GeneralConversion( 1.0/128, 0);
+	private final static GeneralConversion LiterToUSGallon = new GeneralConversion( 1/3.785, 0);
+	private final static GeneralConversion MilliliterToUSGallon = new GeneralConversion( 1.0/3875, 0);
+	private final static GeneralConversion CubicMeterToUSGallon = new GeneralConversion( 264, 0);
+	private final static GeneralConversion CubicFootToUSGallon = new GeneralConversion( 7.481, 0);
+	private final static GeneralConversion CubicInchToUSGallon = new GeneralConversion( 1.0/231, 0);
+	private final static GeneralConversion USTeaspoonToUSGallon = new GeneralConversion( 1/768, 0);
+	
+	private final static GeneralConversion USTablespoonToUSQuart = new GeneralConversion( 1.0/64, 0);
+	private final static GeneralConversion USGallonToUSQuart = new GeneralConversion( 4, 0);
+	private final static GeneralConversion USPintToUSQuart = new GeneralConversion( 2, 0);
+	private final static GeneralConversion USCupToUSQuart = new GeneralConversion( 1/3.943, 0);
+	private final static GeneralConversion USFluidOunceToUSQuart = new GeneralConversion( 1.0/32, 0);
+	private final static GeneralConversion LiterToUSQuart = new GeneralConversion( 1.057, 0);
+	private final static GeneralConversion MilliliterToUSQuart = new GeneralConversion( 1.0/946, 0);
+	private final static GeneralConversion CubicMeterToUSQuart = new GeneralConversion( 1057, 0);
+	private final static GeneralConversion CubicFootToUSQuart = new GeneralConversion( 29.922, 0);
+	private final static GeneralConversion CubicInchToUSQuart = new GeneralConversion( 1/57.75, 0);
+	private final static GeneralConversion USTeaspoonToUSQuart = new GeneralConversion( 1.0/192, 0);
+	
 	private final static GeneralConversion USTablespoonToUSPint = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USGallonToUSPint = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USQuartToUSPint = new GeneralConversion( 1, 0);
@@ -40,6 +42,7 @@ public class VolumeOperation extends Operation
 	private final static GeneralConversion CubicFootToUSPint = new GeneralConversion( 1, 0);
 	private final static GeneralConversion CubicInchToUSPint = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USTeaspoonToUSPint = new GeneralConversion( 1, 0);
+	
 	private final static GeneralConversion USTablespoonToUSCup = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USGallonToUSCup = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USQuartToUSCup = new GeneralConversion( 1, 0);
@@ -51,6 +54,7 @@ public class VolumeOperation extends Operation
 	private final static GeneralConversion CubicFootToUSCup = new GeneralConversion( 1, 0);
 	private final static GeneralConversion CubicInchToUSCup = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USTeaspoonToUSCup = new GeneralConversion( 1, 0);
+	
 	private final static GeneralConversion USTablespoonToUSFluidOunce = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USGallonToUSFluidOunce = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USQuartToUSFluidOunce = new GeneralConversion( 1, 0);
@@ -62,6 +66,7 @@ public class VolumeOperation extends Operation
 	private final static GeneralConversion CubicFootToUSFluidOunce = new GeneralConversion( 1, 0);
 	private final static GeneralConversion CubicInchToUSFluidOunce = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USTeaspoonToUSFluidOunce = new GeneralConversion( 1, 0);
+	
 	private final static GeneralConversion USTablespoonToLiter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USGallonToLiter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USQuartToLiter = new GeneralConversion( 1, 0);
@@ -73,6 +78,7 @@ public class VolumeOperation extends Operation
 	private final static GeneralConversion CubicFootToLiter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion CubicInchToLiter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USTeaspoonToLiter = new GeneralConversion( 1, 0);
+	
 	private final static GeneralConversion USTablespoonToMilliliter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USGallonToMilliliter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USQuartToMilliliter = new GeneralConversion( 1, 0);
@@ -84,6 +90,7 @@ public class VolumeOperation extends Operation
 	private final static GeneralConversion CubicFootToMilliliter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion CubicInchToMilliliter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USTeaspoonToMilliliter = new GeneralConversion( 1, 0);
+	
 	private final static GeneralConversion USTablespoonToCubicMeter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USGallonToCubicMeter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USQuartToCubicMeter = new GeneralConversion( 1, 0);
@@ -92,9 +99,10 @@ public class VolumeOperation extends Operation
 	private final static GeneralConversion USFluidOunceToCubicMeter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion LiterToCubicMeter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion MilliliterToCubicMeter = new GeneralConversion( 1, 0);
-	private final static GeneralConversion CubicFootToCubicMeter = new GeneralConversion( 1, 0);
+	private final static GeneralConversion CubicFootToCubicMeter = new GeneralConversion( 1/35.315, 0);
 	private final static GeneralConversion CubicInchToCubicMeter = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USTeaspoonToCubicMeter = new GeneralConversion( 1, 0);
+	
 	private final static GeneralConversion USTablespoonToCubicFoot = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USGallonToCubicFoot = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USQuartToCubicFoot = new GeneralConversion( 1, 0);
@@ -103,9 +111,10 @@ public class VolumeOperation extends Operation
 	private final static GeneralConversion USFluidOunceToCubicFoot = new GeneralConversion( 1, 0);
 	private final static GeneralConversion LiterToCubicFoot = new GeneralConversion( 1, 0);
 	private final static GeneralConversion MilliliterToCubicFoot = new GeneralConversion( 1, 0);
-	private final static GeneralConversion CubicMeterToCubicFoot = new GeneralConversion( 1, 0);
+	private final static GeneralConversion CubicMeterToCubicFoot = new GeneralConversion( 35.315, 0);
 	private final static GeneralConversion CubicInchToCubicFoot = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USTeaspoonToCubicFoot = new GeneralConversion( 1, 0);
+	
 	private final static GeneralConversion USTablespoonToCubicInch = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USGallonToCubicInch = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USQuartToCubicInch = new GeneralConversion( 1, 0);
@@ -117,6 +126,7 @@ public class VolumeOperation extends Operation
 	private final static GeneralConversion CubicMeterToCubicInch = new GeneralConversion( 1, 0);
 	private final static GeneralConversion CubicFootToCubicInch = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USTeaspoonToCubicInch = new GeneralConversion( 1, 0);
+	
 	private final static GeneralConversion USTablespoonToUSTeaspoon = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USGallonToUSTeaspoon = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USQuartToUSTeaspoon = new GeneralConversion( 1, 0);
@@ -128,6 +138,7 @@ public class VolumeOperation extends Operation
 	private final static GeneralConversion CubicMeterToUSTeaspoon = new GeneralConversion( 1, 0);
 	private final static GeneralConversion CubicFootToUSTeaspoon = new GeneralConversion( 1, 0);
 	private final static GeneralConversion CubicInchToUSTeaspoon = new GeneralConversion( 1, 0);
+	
 	private final static GeneralConversion USGallonToUSTablespoon = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USQuartToUSTablespoon = new GeneralConversion( 1, 0);
 	private final static GeneralConversion USPintToUSTablespoon = new GeneralConversion( 1, 0);

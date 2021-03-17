@@ -11,16 +11,16 @@ public class TimeOperation extends Operation
 {
 	private final static DivisionConversion sTom = new DivisionConversion(60);
 	private final static DivisionConversion sToh = new DivisionConversion(3600);
-	private final static GeneralConversion sTod = new GeneralConversion(0.000011574074074,0);
-	private final static GeneralConversion sTow = new GeneralConversion(0.000001653439153,0);
+	private final static DivisionConversion sTod = new DivisionConversion(86400);
+	private final static DivisionConversion sTow = new DivisionConversion(604800);
 	private final static MultiplyConversion mTos = new MultiplyConversion(60);
 	private final static DivisionConversion mToh = new DivisionConversion(60);
 	private final static DivisionConversion mTod = new DivisionConversion(1440);
-	private final static GeneralConversion mTow = new GeneralConversion(0.000099206349206,0);
+	private final static DivisionConversion mTow = new DivisionConversion(10080);
 	private final static MultiplyConversion hTos = new MultiplyConversion(3600);
 	private final static MultiplyConversion hTom = new MultiplyConversion(60);
 	private final static DivisionConversion hTod = new DivisionConversion(24);
-	private final static GeneralConversion hTow = new GeneralConversion(0.005952380952381,0);
+	private final static DivisionConversion hTow = new DivisionConversion(168);
 	private final static MultiplyConversion dTos = new MultiplyConversion(86400);
 	private final static MultiplyConversion dTom = new MultiplyConversion(1440);
 	private final static MultiplyConversion dToh = new MultiplyConversion(24);
