@@ -247,6 +247,7 @@ public class CalculatorWindow {
 		
 		textField = new JTextField();
 		textField.setEditable(false);
+		textField.setHorizontalAlignment(JTextField.RIGHT);
 		textField.setBounds(10, 62, 337, 53);
 		textField.setText("0");
 		frame.getContentPane().add(textField);

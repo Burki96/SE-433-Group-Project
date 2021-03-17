@@ -15,10 +15,11 @@ public class NumberAction implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		String aString = CalculatorController.GetText();
-		if(aString.compareTo("0") == 0) 
+		if(aString.compareTo("0") == 0 || aString.equals("Error")) 
 		{
 			CalculatorController.SetText(" ");
 		}
+		
 		String numberString = CalculatorController.GetText() + CalculatorController.GetButton(buttonNumber).getText();
 		CalculatorController.SetText(numberString);
 	}

@@ -8,7 +8,14 @@ public class DivisionOperation extends Operation{
 	}
 	public void Execute()
 	{
-		double Result= calculator.GetFirstNumber() / calculator.GetSecondNumber();
-		calculator.PassResult(Result);
+		double Result= 0;
+		double fNumber = calculator.GetFirstNumber();
+		double sNumber = calculator.GetSecondNumber(); 
+		if (sNumber == 0)
+			throw new Exceptions.DivideByZeroException();
+		else {
+			Result = fNumber/sNumber;
+			calculator.PassResult(Result);
+		}
 	}
 }

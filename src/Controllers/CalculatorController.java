@@ -90,19 +90,45 @@ public class CalculatorController {
 
 	private void privCompute() 
 	{
-		double SecondNumber = Double.parseDouble(calculatorWindow.GetText());
-		cal.SetSecondNumber(SecondNumber);
-		this.cal.Execute();
-		this.calculatorWindow.SetText(this.cal.GetAnswer());
+		double SecondNumber = 0;
 		
+		try{
+			SecondNumber = Double.parseDouble(calculatorWindow.GetText());
+		}catch (NumberFormatException e) {
+			SecondNumber = cal.GetFirstNumber();
+		}
+		
+		cal.SetSecondNumber(SecondNumber);
+		//this.cal.Execute();
+		//this.calculatorWindow.SetText(this.cal.GetAnswer());
+	
+		//NEW
+		try{
+			this.cal.Execute();
+			this.calculatorWindow.SetText(this.cal.GetAnswer());
+		} catch(Exceptions.DivideByZeroException e) {
+			this.calculatorWindow.SetText("Error");
+		}
+		//this.calculatorWindow.SetText(this.cal.GetAnswer());
+		//END NEW
 	}
 	private void privDoArthimeticAction(Operation c) 
 	{
+		double value = 0;
+		try { 
+			value = Double.parseDouble(calculatorWindow.GetText());
+			
+		
+		}catch(NumberFormatException e) {
+			this.calculatorWindow.SetText("0");
+		}
 		double first = Double.parseDouble(calculatorWindow.GetText());
 		cal.SetFirstNumber(first);
 		cal.SetSecondNumber(first);
-		this.calculatorWindow.SetText("0");
+		this.calculatorWindow.SetText("");
 		this.cal.SetOperation(c);
+		
+		
 	}
 
 }
