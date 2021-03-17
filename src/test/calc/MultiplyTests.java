@@ -17,7 +17,9 @@ class MultiplyTests
 {
 	/* FR003 The user should be able to perform the multiplication operation. The system 
 	 * should show the results of the multiplication operation. */
-	//7 * 8	
+	
+	// 7 * 8	
+	// positive * positive; non-decimal * non-decimal
 	@Test
 	void test1() 
 	{
@@ -26,11 +28,12 @@ class MultiplyTests
 		CalculatorController.PressButton(ButtonEnum.Multiplication);
 		CalculatorController.PressButton(ButtonEnum.Eight);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer1 = CalculatorController.GetAnswer();
-		assertEquals(answer1, 56);
+		String answer1 = CalculatorController.GetText();
+		assertEquals(answer1, "56");
 		CalculatorController.Turnoff();
 	}
-	//9 * -8.5	
+	// 9 * -8.5	
+	// positive * negative; non-decimal * decimal OR decimal * non-decimal 
 	@Test
 	void test2()
 	{
@@ -42,12 +45,13 @@ class MultiplyTests
 		CalculatorController.PressButton(ButtonEnum.Five);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer2 = CalculatorController.GetAnswer();
-		assertEquals(answer2, -76.5);
+		String answer2 = CalculatorController.GetText();
+		assertEquals(answer2, "-76.5");
 		CalculatorController.Turnoff();
 	}
 	// FR021. The calculator should show a precision of at least 2 decimals.
 	// -9.9 * -9.9	
+	// negative * negative; decimal * decimal
 	@Test
 	void test3()
 	{
@@ -62,13 +66,14 @@ class MultiplyTests
 		CalculatorController.PressButton(ButtonEnum.Nine);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer3 = CalculatorController.GetAnswer();
-		assertEquals(answer3, 98.01);
+		String answer3 = CalculatorController.GetText();
+		assertEquals(answer3, "98.01");
 		CalculatorController.Turnoff();
 	}
-	//0 * 100	
+	// 0 * 100	
+	// zero * number
 	@Test
-	void test4()
+	void multiplyByZeroTest()
 	{
 		CalculatorController.StartJUNIT();
 		CalculatorController.PressButton(ButtonEnum.Zero);
@@ -77,8 +82,8 @@ class MultiplyTests
 		CalculatorController.PressButton(ButtonEnum.Zero);
 		CalculatorController.PressButton(ButtonEnum.Zero);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		Double answer4 = CalculatorController.GetAnswer();
-		assertEquals(answer4, 0);
+		String answer4 = CalculatorController.GetText();
+		assertEquals(answer4, "0");
 		CalculatorController.Turnoff();
 	}
 }
