@@ -1,19 +1,6 @@
 package test.calc;
 
-import Calculators.ButtonEnum;
-import Calculators.Enums.MassEnums;
-import Calculators.Enums.TempEnums;
-import Calculators.Enums.TimeEnums;
-import Calculators.Enums.TypeEnums;
-import Controllers.CalculatorController;
-import Controllers.UnitConverterController;
-
-
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -25,6 +12,7 @@ class MinusTests
 	/* FR002 The user should be able to perform the subtraction operation. The system 
 	 * should show the results of the subtraction operation. */
 	
+	String answer = "";
 	// 5 - 4	
 	// positive - positive (answer: positive); non-decimal - non-decimal
 	@Test
@@ -35,8 +23,8 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Minus);
 		CalculatorController.PressButton(ButtonEnum.Four);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		String answer1 = CalculatorController.GetText();
-		assertEquals(answer1, "1");
+		answer = CalculatorController.GetText();
+		assertEquals(answer, "1");
 		CalculatorController.Turnoff();
 	}
 	// 5.5 - 6	
@@ -51,8 +39,8 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Minus);
 		CalculatorController.PressButton(ButtonEnum.Six);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		String answer2 = CalculatorController.GetText();
-		assertEquals(answer2, "-0.5");
+		answer = CalculatorController.GetText();
+		assertEquals(answer, "-0.5");
 		CalculatorController.Turnoff();
 	}
 	// 7.5 - (-6.5) 
@@ -70,8 +58,8 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Five);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		String answer3 = CalculatorController.GetText();
-		assertEquals(answer3, "14");
+		answer = CalculatorController.GetText();
+		assertEquals(answer, "14");
 		CalculatorController.Turnoff();
 	}
 	// -1 - (-5.8)	
@@ -88,8 +76,8 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Eight);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		String answer4 = CalculatorController.GetText();
-		assertEquals(answer4, "4.8");
+		answer = CalculatorController.GetText();
+		assertEquals(answer, "4.8");
 		CalculatorController.Turnoff();
 	}
 	// -5.5 - (-4.7)	
@@ -108,8 +96,8 @@ class MinusTests
 		CalculatorController.PressButton(ButtonEnum.Seven);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		String answer5 = CalculatorController.GetText();
-		assertEquals(answer5, "-0.8");
+		answer = CalculatorController.GetText();
+		assertEquals(answer, "-0.8");
 		CalculatorController.Turnoff();
 	}
 
