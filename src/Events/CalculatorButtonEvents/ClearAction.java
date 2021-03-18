@@ -18,9 +18,8 @@ public class ClearAction implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		CalculatorController.setDecimal(false);
 		CalculatorController.SetText("0");
-		CalculatorController.DoArithmeticAction(this.symbol);
+		CalculatorController.DoArthimeticAction(this.symbol);
 		
 	}
 
