@@ -18,6 +18,7 @@ class AddTests
 	/* FR001 The user should be able to perform the addition operation. The system should show the 
 	 * results of the addition. */
 	
+	String answer = "";
 	//	5.5 + 9.5 
 	// positive + positive; decimal + decimal (carry over decimal)
 	@Test
@@ -32,8 +33,8 @@ class AddTests
 		CalculatorController.PressButton(ButtonEnum.Period);
 		CalculatorController.PressButton(ButtonEnum.Five);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		String answer1 = CalculatorController.GetText();
-		assertEquals(answer1, "15");
+		answer = CalculatorController.GetText();
+		assertEquals(answer, "15");
 		CalculatorController.Turnoff();
 	}
 	// 6 + (-4)	
@@ -47,8 +48,8 @@ class AddTests
 		CalculatorController.PressButton(ButtonEnum.Four);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		String answer2 = CalculatorController.GetText();
-		assertEquals(answer2, "2");
+		answer = CalculatorController.GetText();
+		assertEquals(answer, "2");
 		CalculatorController.Turnoff();
 	}
 	// 1.2 + -3.4
@@ -66,8 +67,8 @@ class AddTests
 		CalculatorController.PressButton(ButtonEnum.Four);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		String answer3 = CalculatorController.GetText();
-		assertEquals(answer3, "-2.2");
+		answer = CalculatorController.GetText();
+		assertEquals(answer, "-2.2");
 		CalculatorController.Turnoff();
 	}
 	// -0.7 + -8	
@@ -84,8 +85,8 @@ class AddTests
 		CalculatorController.PressButton(ButtonEnum.Eight);
 		CalculatorController.PressButton(ButtonEnum.PlusMinus);
 		CalculatorController.PressButton(ButtonEnum.Equals);
-		String answer4 = CalculatorController.GetText();
-		assertEquals(answer4, "-8.7");
+		answer = CalculatorController.GetText();
+		assertEquals(answer, "-8.7");
 		CalculatorController.Turnoff();
 	}
 	
