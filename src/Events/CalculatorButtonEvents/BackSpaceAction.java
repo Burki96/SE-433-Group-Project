@@ -15,15 +15,7 @@ public class BackSpaceAction implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		String backString = null;
 		String currentString = CalculatorController.GetText();
-		/*
-		 * if(currentString.length() > 0) { BackSpaceSpring.append(currentString);
-		 * BackSpaceSpring.deleteCharAt(currentString.length() - 1); backString =
-		 * BackSpaceSpring.toString(); CalculatorController.SetText(backString);
-		 * BackSpaceSpring.delete(0, BackSpaceSpring.length()); if(backString.isBlank())
-		 * { CalculatorController.SetText("0"); } }
-		 */
-		if(currentString.endsWith("."))
-			CalculatorController.setDecimal(false);
+
 		if(currentString.length() > 0)
 		{
 			BackSpaceSpring.append(currentString);
@@ -36,7 +28,6 @@ public class BackSpaceAction implements ActionListener
 				CalculatorController.SetText("0");
 			} 
 		}
-
 
 	}
 

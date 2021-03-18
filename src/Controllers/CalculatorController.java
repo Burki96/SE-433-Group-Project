@@ -79,9 +79,9 @@ public class CalculatorController {
 		return GetInstance().calculatorWindow.GetButton(i);
 	}
 
-	public static void DoArithmeticAction(Operation c)
+	public static void DoArthimeticAction(Operation c)
 	{
-		GetInstance().privDoArithmeticAction(c);
+		GetInstance().privDoArthimeticAction(c);
 	}
 	public static void Compute()
 	{
@@ -112,7 +112,7 @@ public class CalculatorController {
 		//this.calculatorWindow.SetText(this.cal.GetAnswer());
 		//END NEW
 	}
-	private void privDoArithmeticAction(Operation c) 
+	private void privDoArthimeticAction(Operation c) 
 	{
 		double value = 0;
 		try { 
@@ -130,55 +130,5 @@ public class CalculatorController {
 		
 		
 	}
-	
-	
-	//new code
-	
-	public static void setDecimal(boolean b) {
-		GetInstance().privSetDecimal(b);
-		
-		
-	}
-	private  void privSetDecimal(boolean b) {
-		
-		this.dot = b;
-		
-	}
-	public static boolean getDecimal() {
-		// TODO Auto-generated method stub
-		return GetInstance().privGetDecimal();
-	}
-	private  boolean privGetDecimal() {
-		
-		return this.dot;
-		
-	}
-	
-	public static void setFInput(boolean b) {
-		GetInstance().privSetFInput(b);
-		
-		
-	}
-	private  void privSetFInput(boolean b) {
-		
-		this.firstInput = b;
-		
-	}
-	public static boolean getFInput() {
-		// TODO Auto-generated method stub
-		return GetInstance().privGetFInput();
-	}
-	private  boolean privGetFInput() {
-		
-		return this.firstInput;
-		
-	}
-	
-
-	private boolean dot = false;
-	private String op = "";
-	private String prevPressedButton = "";
-	private boolean firstInput = true;
-    private boolean operator = false;
 
 }
