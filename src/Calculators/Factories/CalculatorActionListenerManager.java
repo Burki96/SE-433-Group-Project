@@ -15,6 +15,7 @@ import Events.CalculatorButtonEvents.CalculatorMainMenuSwitch;
 import Events.CalculatorButtonEvents.ClearAction;
 import Events.CalculatorButtonEvents.EqualAction;
 import Events.CalculatorButtonEvents.NumberAction;
+import Events.CalculatorButtonEvents.PeriodAction;
 import Events.CalculatorButtonEvents.PlusMinusAction;
 
 public class CalculatorActionListenerManager {
@@ -33,11 +34,12 @@ public class CalculatorActionListenerManager {
 	private CalculatorActionListenerManager() 
 	{
 		list = new ArrayList<ActionListener>();
-		int a = 11;
+		int a = 10;
 		for(int i = 0; i < a; i++) 
 		{
 			list.add(new NumberAction(i));
 		}
+		list.add(new PeriodAction());
 		list.add(new ArithmeticAction(new PlusOperation(CalculatorController.GetCalculator())));
 		list.add(new ArithmeticAction(new MinusOperation(CalculatorController.GetCalculator())));
 		list.add(new ArithmeticAction(new MultiplicationOperation(CalculatorController.GetCalculator())));

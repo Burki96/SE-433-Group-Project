@@ -1,6 +1,7 @@
 package Calculators.Windows;
 
 
+import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -217,7 +218,7 @@ public class CalculatorWindow {
 		frame.getContentPane().add(MinusButton);
 
 		
-		MultiplicationButton = ButtonFactory.GetButton("X",257, 318, 73, 53);
+		MultiplicationButton = ButtonFactory.GetButton("*",257, 318, 73, 53);
 //		MultiplicationButton.setBounds(257, 318, 73, 53);
 		frame.getContentPane().add(MultiplicationButton);
 				//13
@@ -248,6 +249,7 @@ public class CalculatorWindow {
 		textField = new JTextField();
 		textField.setEditable(false);
 		textField.setHorizontalAlignment(JTextField.RIGHT);
+		textField.setFont(new Font("SansSerif", Font.PLAIN, 20));
 		textField.setBounds(10, 62, 337, 53);
 		textField.setText("0");
 		frame.getContentPane().add(textField);

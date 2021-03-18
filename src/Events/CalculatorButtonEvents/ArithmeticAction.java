@@ -15,7 +15,7 @@ public class ArithmeticAction implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		CalculatorController.DoArthimeticAction(this.symbol);
+		CalculatorController.DoArithmeticAction(this.symbol);
 	}
 
 }

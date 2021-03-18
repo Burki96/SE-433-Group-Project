@@ -35,6 +35,7 @@ public class BasicCalculator
 	{
 		this.SecondNumber = i;
 	}
+
 	public void Execute()
 	{
 		this.op.Execute();
@@ -51,6 +52,8 @@ public class BasicCalculator
 	{
 		return this.Answer;
 	}
+
+	
 	public void PassResult(double Result) 
 	{
 		DecimalFormat df = new DecimalFormat("###.###########");
@@ -64,4 +67,6 @@ public class BasicCalculator
 	private Operation op;
 	private String Answer;
 	private double Result;
+
+	
 }
