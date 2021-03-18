@@ -7,20 +7,20 @@ import Controllers.UnitConverterController;
 
 public class LengthOperation extends Operation
 {
-	private final static GeneralConversion MtoKm = new GeneralConversion(1/1000,0);
-	private final static GeneralConversion Mtocm = new GeneralConversion(100,0);
-	private final static GeneralConversion Mtomm = new GeneralConversion(1000,0);
-	private final static GeneralConversion MtoMile = new GeneralConversion(1/1609,0);
-	private final static GeneralConversion MtoYard = new GeneralConversion(1.094,0);
-	private final static GeneralConversion MtoFoot = new GeneralConversion(3.281,0);
-	private final static GeneralConversion MtoInch = new GeneralConversion(39.37,0);
-	private final static GeneralConversion KmtoM = new GeneralConversion(1000,0);
-	private final static GeneralConversion cmtoM = new GeneralConversion(1/100,0);
-	private final static GeneralConversion mmtoM = new GeneralConversion(1/1000,0);
-	private final static GeneralConversion MiletoM = new GeneralConversion(1609,0);
-	private final static GeneralConversion YardtoM = new GeneralConversion(1/1.094,0);
-	private final static GeneralConversion FoottoM = new GeneralConversion(1/3.281,0);
-	private final static GeneralConversion InchtoM = new GeneralConversion(1/39.37,0);
+	private final static GeneralConversion MtoKm = new GeneralConversion(1.0/1000);
+	private final static GeneralConversion Mtocm = new GeneralConversion(100);
+	private final static GeneralConversion Mtomm = new GeneralConversion(1000);
+	private final static GeneralConversion MtoMile = new GeneralConversion(1.0/1609);
+	private final static GeneralConversion MtoYard = new GeneralConversion(1.094);
+	private final static GeneralConversion MtoFoot = new GeneralConversion(3.281);
+	private final static GeneralConversion MtoInch = new GeneralConversion(39.37);
+	private final static GeneralConversion KmtoM = new GeneralConversion(1000);
+	private final static GeneralConversion cmtoM = new GeneralConversion(1.0/100);
+	private final static GeneralConversion mmtoM = new GeneralConversion(1.0/1000);
+	private final static GeneralConversion MiletoM = new GeneralConversion(1609);
+	private final static GeneralConversion YardtoM = new GeneralConversion(1/1.094);
+	private final static GeneralConversion FoottoM = new GeneralConversion(1/3.281);
+	private final static GeneralConversion InchtoM = new GeneralConversion(1/39.37);
 	
 	@Override
 	public void Execute() 

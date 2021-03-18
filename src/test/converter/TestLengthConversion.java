@@ -17,16 +17,16 @@ class TestLengthConversion {
 	static Stream<Arguments> testBaseUnitsLenConversionsSrc() {
 		return Stream.of(
 
-				Arguments.of(LengthEnums.MtoKm,"1",1/1000),
+				Arguments.of(LengthEnums.MtoKm,"1000",1.0),
 				Arguments.of(LengthEnums.Mtocm,"1",100),
 				Arguments.of(LengthEnums.Mtomm,"1",1000),
-				Arguments.of(LengthEnums.MtoMile,"1",1/1609),
+				Arguments.of(LengthEnums.MtoMile,"1609",1.0),
 				Arguments.of(LengthEnums.MtoYard,"1",1.094),
 				Arguments.of(LengthEnums.MtoFoot,"1",3.281),
 				Arguments.of(LengthEnums.MtoInch,"1",39.37),
 				Arguments.of(LengthEnums.KmtoM,"1",1000),
-				Arguments.of(LengthEnums.cmtoM,"1",1/100),
-				Arguments.of(LengthEnums.mmtoM,"1",1/1000),
+				Arguments.of(LengthEnums.cmtoM,"100",1.0),
+				Arguments.of(LengthEnums.mmtoM,"1000",1.0),
 				Arguments.of(LengthEnums.MiletoM,"1",1609),
 				Arguments.of(LengthEnums.YardtoM,"1",0.91407678245),
 				Arguments.of(LengthEnums.FoottoM,"1",0.30478512649),
