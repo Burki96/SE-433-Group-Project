@@ -1,24 +1,13 @@
 package test.calc;
 
 import Calculators.ButtonEnum;
-import Calculators.Enums.MassEnums;
-import Calculators.Enums.TempEnums;
-import Calculators.Enums.TimeEnums;
-import Calculators.Enums.TypeEnums;
 import Controllers.CalculatorController;
-import Controllers.UnitConverterController;
 
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
-import Calculators.ButtonEnum;
-import Controllers.CalculatorController;
 
 class MinusTests 
 {
@@ -94,7 +83,7 @@ class MinusTests
 		CalculatorController.Turnoff();
 	}
 	// -5.5 - (-4.7)	
-	// negative - negative (answer: negative); negative decimal - negative decimal (“borrow” digit across decimal)
+	// negative - negative (answer: negative); negative decimal - negative decimal (â€œborrowâ€� digit across decimal)
 	@Test
 	void test5()
 	{

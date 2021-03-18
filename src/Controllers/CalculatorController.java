@@ -114,9 +114,8 @@ public class CalculatorController {
 	}
 	private void privDoArthimeticAction(Operation c) 
 	{
-		double value = 0;
 		try { 
-			value = Double.parseDouble(calculatorWindow.GetText());
+			Double.parseDouble(calculatorWindow.GetText());
 			
 		
 		}catch(NumberFormatException e) {

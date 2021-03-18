@@ -2,12 +2,10 @@ package test.calc;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.text.DecimalFormat;
 
 import org.junit.jupiter.api.Test;
 
 import Calculators.ButtonEnum;
-import Calculators.Calculator;
 import Controllers.CalculatorController;
 
 class DivideTests 
